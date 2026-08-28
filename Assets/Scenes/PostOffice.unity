@@ -216,8 +216,10 @@ MonoBehaviour:
   characterName: Potsmaster
   dialogueLines:
   - Before you start your rounds, I've got a special delivery for you.
-  - A letter. Came in with the morning mail."
-  - There's no name on it. Figure it out before tonight. Just don't open it.
+  - A letter. Came in with the morning mail.
+  - 'There''s no name on it, but the handwriting does look familiar. Try speaking
+    with the bookstore owner. '
+  - Figure it out before tonight. Just don't open it.
   journalInformation: 
 --- !u!1001 &621625458
 PrefabInstance:
