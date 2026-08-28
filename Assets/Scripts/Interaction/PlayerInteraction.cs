@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     private Interactable currentInteractable;
     private SpriteRenderer interactionIcon;
     private DialogueManager dialogueManager;
+    
 
     private void Awake()
     {
@@ -51,7 +52,9 @@ public class PlayerInteraction : MonoBehaviour
             Keyboard.current != null &&
             Keyboard.current.eKey.wasPressedThisFrame)
         {
+            // starts the interaction and stops this update before any other world interaction can occur.
             currentInteractable.Interact();
+            return;
         }
     }
 
