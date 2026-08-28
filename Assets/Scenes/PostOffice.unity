@@ -212,11 +212,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionName: Talk
-  characterName: Postmaster
+  npcId: postmaster
+  characterName: Potsmaster
   dialogueLines:
   - Before you start your rounds, I've got a special delivery for you.
   - A letter. Came in with the morning mail."
   - There's no name on it. Figure it out before tonight. Just don't open it.
+  journalInformation: 
 --- !u!1001 &621625458
 PrefabInstance:
   m_ObjectHideFlags: 0
