@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     // stores the direction the player was most recently facing.
     private int lastDirection = 0;
 
+    // stores the animation state currently being played so it is not restarted every frame.
+    private string currentAnimation = "";
+
     private void Awake()
     {
         // gets the rigidbody used for physics-based player movement.
@@ -69,56 +72,69 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        // moves the rigidbody so the player interacts correctly with 2d colliders.
+        // moves the rigidbody through the physics system so collisions work correctly.
         Vector2 newPosition = rb.position + movementInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
     }
 
     private void UpdateAnimation()
     {
-        // chooses the walking animation while the player is moving.
+        string targetAnimation;
+
+        // selects the walking animation when the player has movement input.
         if (movementInput != Vector2.zero)
         {
-            switch (lastDirection)
-            {
-                case 0:
-                    animator.Play("walking_down");
-                    break;
-
-                case 1:
-                    animator.Play("walking_up");
-                    break;
-
-                case 2:
-                    animator.Play("walking_left");
-                    break;
-
-                case 3:
-                    animator.Play("walking_right");
-                    break;
-            }
+            targetAnimation = GetWalkingAnimation();
         }
         else
         {
-            // chooses the matching single-frame idle animation when movement stops.
-            switch (lastDirection)
-            {
-                case 0:
-                    animator.Play("idle_down");
-                    break;
+            // selects the matching single-frame idle animation when the player stops.
+            targetAnimation = GetIdleAnimation();
+        }
 
-                case 1:
-                    animator.Play("idle_up");
-                    break;
+        // only changes the animator state when the required animation has actually changed.
+        if (targetAnimation != currentAnimation)
+        {
+            animator.Play(targetAnimation);
+            currentAnimation = targetAnimation;
+        }
+    }
 
-                case 2:
-                    animator.Play("idle_left");
-                    break;
+    private string GetWalkingAnimation()
+    {
+        // converts the stored direction into the corresponding walking animation state.
+        switch (lastDirection)
+        {
+            case 1:
+                return "walking_up";
 
-                case 3:
-                    animator.Play("idle_right");
-                    break;
-            }
+            case 2:
+                return "walking_left";
+
+            case 3:
+                return "walking_right";
+
+            default:
+                return "walking_down";
+        }
+    }
+
+    private string GetIdleAnimation()
+    {
+        // converts the stored direction into the corresponding idle animation state.
+        switch (lastDirection)
+        {
+            case 1:
+                return "idle_up";
+
+            case 2:
+                return "idle_left";
+
+            case 3:
+                return "idle_right";
+
+            default:
+                return "idle_down";
         }
     }
 }
