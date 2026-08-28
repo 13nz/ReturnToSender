@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     // stores the animation currently playing so it is not restarted every frame.
     private string currentAnimation = "";
 
+    // references the shared dialogue manager so player movement can be disabled during conversations.
+    private DialogueManager dialogueManager;
+
     private void Awake()
     {
         // destroys duplicate players created when a scene containing a player is loaded.
@@ -40,16 +43,33 @@ public class PlayerMovement : MonoBehaviour
 
         // finds the animator on the player's visual child object.
         animator = GetComponentInChildren<Animator>();
+
+        // finds the shared dialogue manager so movement can be disabled while dialogue is active.
+        dialogueManager = FindFirstObjectByType<DialogueManager>();
     }
 
     private void Update()
     {
+        // prevents the player from moving while a dialogue conversation is active.
+        if (dialogueManager != null && dialogueManager.IsDialogueActive)
+        {
+            movementInput = Vector2.zero;
+            return;
+        }
+
         ReadInput();
         UpdateAnimation();
     }
 
     private void FixedUpdate()
     {
+
+        // stops any remaining movement from being applied while dialogue is active.
+        if (dialogueManager != null && dialogueManager.IsDialogueActive)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
         MovePlayer();
     }
 

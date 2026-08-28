@@ -220,7 +220,7 @@ MonoBehaviour:
   - 'There''s no name on it, but the handwriting does look familiar. Try speaking
     with the bookstore owner. '
   - Figure it out before tonight. Just don't open it.
-  journalInformation: 
+  journalInformation: information the potsmaster gave blah blah blah
 --- !u!1001 &621625458
 PrefabInstance:
   m_ObjectHideFlags: 0
