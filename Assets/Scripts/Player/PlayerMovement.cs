@@ -6,24 +6,39 @@ public class PlayerMovement : MonoBehaviour
     [Header("movement settings")]
     [SerializeField] private float moveSpeed = 3f;
 
+    private static PlayerMovement instance;
+
     private Rigidbody2D rb;
     private Animator animator;
 
     // stores the direction currently pressed by the player.
     private Vector2 movementInput;
 
-    // stores the direction the player was most recently facing.
-    private int lastDirection = 0;
+    // stores the last direction the player faced so the correct idle pose is preserved.
+    private Vector2 lastDirection = Vector2.down;
 
-    // stores the animation state currently being played so it is not restarted every frame.
+    // stores the animation currently playing so it is not restarted every frame.
     private string currentAnimation = "";
 
     private void Awake()
     {
-        // gets the rigidbody used for physics-based player movement.
+        // destroys duplicate players created when a scene containing a player is loaded.
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // stores this player as the single persistent player instance.
+        instance = this;
+
+        // keeps the player alive when changing between outdoor and interior scenes.
+        DontDestroyOnLoad(gameObject);
+
+        // gets the rigidbody responsible for player movement and collision.
         rb = GetComponent<Rigidbody2D>();
 
-        // gets the animator from the visual child object.
+        // finds the animator on the player's visual child object.
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -40,39 +55,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void ReadInput()
     {
+        // clears movement input each frame while keeping the last facing direction.
         movementInput = Vector2.zero;
 
-        // stops input checks if no keyboard is currently available.
+        // stops input processing if no keyboard is available.
         if (Keyboard.current == null)
             return;
 
-        // vertical input takes priority, preventing diagonal movement.
+        // checks vertical input first so diagonal movement is never possible.
         if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
         {
             movementInput = Vector2.up;
-            lastDirection = 1;
+            lastDirection = Vector2.up;
         }
         else if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
         {
             movementInput = Vector2.down;
-            lastDirection = 0;
+            lastDirection = Vector2.down;
         }
-        // horizontal input is checked only when no vertical key is pressed.
+        // checks horizontal input only when no vertical input is being held.
         else if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             movementInput = Vector2.left;
-            lastDirection = 2;
+            lastDirection = Vector2.left;
         }
         else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             movementInput = Vector2.right;
-            lastDirection = 3;
+            lastDirection = Vector2.right;
         }
     }
 
     private void MovePlayer()
     {
-        // moves the rigidbody through the physics system so collisions work correctly.
+        // moves the rigidbody through Unity's physics system so collisions remain active.
         Vector2 newPosition = rb.position + movementInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
     }
@@ -81,18 +97,18 @@ public class PlayerMovement : MonoBehaviour
     {
         string targetAnimation;
 
-        // selects the walking animation when the player has movement input.
+        // selects a walking animation when the player is currently moving.
         if (movementInput != Vector2.zero)
         {
             targetAnimation = GetWalkingAnimation();
         }
         else
         {
-            // selects the matching single-frame idle animation when the player stops.
+            // selects the idle animation that matches the player's last facing direction.
             targetAnimation = GetIdleAnimation();
         }
 
-        // only changes the animator state when the required animation has actually changed.
+        // only changes animation states when the requested animation is different.
         if (targetAnimation != currentAnimation)
         {
             animator.Play(targetAnimation);
@@ -102,39 +118,31 @@ public class PlayerMovement : MonoBehaviour
 
     private string GetWalkingAnimation()
     {
-        // converts the stored direction into the corresponding walking animation state.
-        switch (lastDirection)
-        {
-            case 1:
-                return "walking_up";
+        // selects the walking animation directly from the stored direction.
+        if (lastDirection == Vector2.up)
+            return "walking_up";
 
-            case 2:
-                return "walking_left";
+        if (lastDirection == Vector2.down)
+            return "walking_down";
 
-            case 3:
-                return "walking_right";
+        if (lastDirection == Vector2.left)
+            return "walking_left";
 
-            default:
-                return "walking_down";
-        }
+        return "walking_right";
     }
 
     private string GetIdleAnimation()
     {
-        // converts the stored direction into the corresponding idle animation state.
-        switch (lastDirection)
-        {
-            case 1:
-                return "idle_up";
+        // selects the matching single-frame idle animation when movement stops.
+        if (lastDirection == Vector2.up)
+            return "idle_up";
 
-            case 2:
-                return "idle_left";
+        if (lastDirection == Vector2.down)
+            return "idle_down";
 
-            case 3:
-                return "idle_right";
+        if (lastDirection == Vector2.left)
+            return "idle_left";
 
-            default:
-                return "idle_down";
-        }
+        return "idle_right";
     }
 }
