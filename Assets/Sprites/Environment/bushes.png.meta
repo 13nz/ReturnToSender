@@ -3,17 +3,17 @@ guid: 90b1d2f25edc54c12b13970f46146a46
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 561947510922196825
-    second: unfake-pixel-art 48_0
+      213: -1366677981984774684
+    second: bushes_0
   - first:
-      213: -8595685387868063598
-    second: unfake-pixel-art 48_1
+      213: -5686578069567181167
+    second: bushes_1
   - first:
-      213: 4867100717929908345
-    second: unfake-pixel-art 48_2
+      213: 7400571199512165984
+    second: bushes_2
   - first:
-      213: -6083071550165020314
-    second: unfake-pixel-art 48_3
+      213: -7791310521129349128
+    second: bushes_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -62,7 +62,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unfake-pixel-art 48_0
+      name: bushes_0
       rect:
         serializedVersion: 2
         x: 40
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 957beeaa8407cc700800000000000000
-      internalID: 561947510922196825
+      spriteID: 4e52379cd95980de0800000000000000
+      internalID: -1366677981984774684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 48_1
+      name: bushes_1
       rect:
         serializedVersion: 2
         x: 228
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 298bb1f7eadf5b880800000000000000
-      internalID: -8595685387868063598
+      spriteID: 19eebefdf573511b0800000000000000
+      internalID: -5686578069567181167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 48_2
+      name: bushes_2
       rect:
         serializedVersion: 2
         x: 2
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 978c242e05a6b8340800000000000000
-      internalID: 4867100717929908345
+      spriteID: 06eb8e9cb4c14b660800000000000000
+      internalID: 7400571199512165984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 48_3
+      name: bushes_3
       rect:
         serializedVersion: 2
         x: 211
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 661112597a6949ba0800000000000000
-      internalID: -6083071550165020314
+      spriteID: 8ff42557c54bfd390800000000000000
+      internalID: -7791310521129349128
       vertices: []
       indices: 
       edges: []
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      unfake-pixel-art 48_0: 561947510922196825
-      unfake-pixel-art 48_1: -8595685387868063598
-      unfake-pixel-art 48_2: 4867100717929908345
-      unfake-pixel-art 48_3: -6083071550165020314
+      bushes_0: -1366677981984774684
+      bushes_1: -5686578069567181167
+      bushes_2: 7400571199512165984
+      bushes_3: -7791310521129349128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

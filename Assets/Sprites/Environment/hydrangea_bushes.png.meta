@@ -3,17 +3,17 @@ guid: 3bc4be3e8084d4097899414a24aa6e1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4263251205998407601
-    second: unfake-pixel-art 49_0
+      213: 2109382146077331720
+    second: hydrangea_bushes_0
   - first:
-      213: 666280187572294556
-    second: unfake-pixel-art 49_1
+      213: 3207828869848186969
+    second: hydrangea_bushes_1
   - first:
-      213: 1445690113161092805
-    second: unfake-pixel-art 49_2
+      213: 2841350734726951908
+    second: hydrangea_bushes_2
   - first:
-      213: 1878889028338846990
-    second: unfake-pixel-art 49_3
+      213: 7853441468512635705
+    second: hydrangea_bushes_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -62,7 +62,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unfake-pixel-art 49_0
+      name: hydrangea_bushes_0
       rect:
         serializedVersion: 2
         x: 13
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f409536ad93e5d4c0800000000000000
-      internalID: -4263251205998407601
+      spriteID: 8019d78c2e7064d10800000000000000
+      internalID: 2109382146077331720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 49_1
+      name: hydrangea_bushes_1
       rect:
         serializedVersion: 2
         x: 147
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c93902dec4a1f3900800000000000000
-      internalID: 666280187572294556
+      spriteID: 9504b8f7c5f748c20800000000000000
+      internalID: 3207828869848186969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 49_2
+      name: hydrangea_bushes_2
       rect:
         serializedVersion: 2
         x: 9
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ced2429f7f101410800000000000000
-      internalID: 1445690113161092805
+      spriteID: 4e3f1b960718e6720800000000000000
+      internalID: 2841350734726951908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: unfake-pixel-art 49_3
+      name: hydrangea_bushes_3
       rect:
         serializedVersion: 2
         x: 145
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0d0482dd97231a10800000000000000
-      internalID: 1878889028338846990
+      spriteID: 93b840308670dfc60800000000000000
+      internalID: 7853441468512635705
       vertices: []
       indices: 
       edges: []
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      unfake-pixel-art 49_0: -4263251205998407601
-      unfake-pixel-art 49_1: 666280187572294556
-      unfake-pixel-art 49_2: 1445690113161092805
-      unfake-pixel-art 49_3: 1878889028338846990
+      hydrangea_bushes_0: 2109382146077331720
+      hydrangea_bushes_1: 3207828869848186969
+      hydrangea_bushes_2: 2841350734726951908
+      hydrangea_bushes_3: 7853441468512635705
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
