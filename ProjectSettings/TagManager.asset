@@ -44,6 +44,9 @@ TagManager:
   - name: Tilemaps
     uniqueID: 2795261017
     locked: 0
+  - name: World
+    uniqueID: 3166626285
+    locked: 0
   - name: Buildings
     uniqueID: 1288800721
     locked: 0

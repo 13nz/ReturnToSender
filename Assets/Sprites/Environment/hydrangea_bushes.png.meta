@@ -58,8 +58,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -125,12 +125,12 @@ TextureImporter:
       name: hydrangea_bushes_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 125
-        width: 97
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 14
+        y: 126
+        width: 95
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: hydrangea_bushes_1
       rect:
         serializedVersion: 2
-        x: 147
-        y: 124
-        width: 273
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 148
+        y: 125
+        width: 271
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: hydrangea_bushes_2
       rect:
         serializedVersion: 2
-        x: 9
-        y: 7
-        width: 109
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10
+        y: 8
+        width: 107
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: hydrangea_bushes_3
       rect:
         serializedVersion: 2
-        x: 145
-        y: 10
-        width: 275
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 146
+        y: 11
+        width: 273
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 74e66894770c3400a9b1a38efecc8ceb
     internalID: 0
     vertices: []
     indices: 
