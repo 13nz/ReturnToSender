@@ -58,11 +58,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 7
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
@@ -128,17 +128,21 @@ TextureImporter:
       name: Houses2_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 116
-        width: 151
-        height: 129
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 25
+        y: 117
+        width: 149
+        height: 127
+      alignment: 9
+      pivot: {x: 0.48534438, y: 0.35814637}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -71.5, y: -43.5}
+        - {x: 64.5, y: -43.5}
+        - {x: 64.5, y: -15.5}
+        - {x: -71.5, y: -15.5}
+      tessellationDetail: 0
       bones: []
       spriteID: 08b4c24ab797ad470800000000000000
       internalID: 8420176025264868224
@@ -150,17 +154,21 @@ TextureImporter:
       name: Houses2_1
       rect:
         serializedVersion: 2
-        x: 184
-        y: 29
-        width: 124
-        height: 213
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 185
+        y: 30
+        width: 122
+        height: 211
+      alignment: 9
+      pivot: {x: 0.51789916, y: 0.39650777}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -52, y: -78.5}
+        - {x: 47, y: -78.5}
+        - {x: 47, y: -12.5}
+        - {x: -52, y: -12.5}
+      tessellationDetail: 0
       bones: []
       spriteID: 0e0362bf6270d2d00800000000000000
       internalID: 949422960448778464
@@ -172,17 +180,21 @@ TextureImporter:
       name: Houses2_2
       rect:
         serializedVersion: 2
-        x: 322
-        y: 128
-        width: 131
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 323
+        y: 129
+        width: 129
+        height: 111
+      alignment: 9
+      pivot: {x: 0.47037643, y: 0.4016358}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -55.5, y: -39.5}
+        - {x: 48.5, y: -39.5}
+        - {x: 48.5, y: 1.5}
+        - {x: -55.5, y: 1.5}
+      tessellationDetail: 0
       bones: []
       spriteID: 1e104abe210a99270800000000000000
       internalID: 8257807394883764705
@@ -194,17 +206,21 @@ TextureImporter:
       name: Houses2_3
       rect:
         serializedVersion: 2
-        x: 21
-        y: 12
-        width: 153
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 22
+        y: 13
+        width: 151
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40214613}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -69.5, y: -38}
+        - {x: 64.5, y: -38}
+        - {x: 64.5, y: -12}
+        - {x: -69.5, y: -12}
+      tessellationDetail: 0
       bones: []
       spriteID: cd8398e1ce8abf9d0800000000000000
       internalID: -2739410216246757156
@@ -216,17 +232,21 @@ TextureImporter:
       name: Houses2_4
       rect:
         serializedVersion: 2
-        x: 318
-        y: 6
-        width: 137
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 319
+        y: 7
+        width: 135
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4805028}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -48.5, y: -26}
+        - {x: 51.5, y: -26}
+        - {x: 51.5, y: 10}
+        - {x: -48.5, y: 10}
+      tessellationDetail: 0
       bones: []
       spriteID: 00c47eadc6b8c0310800000000000000
       internalID: 1372625286086478848

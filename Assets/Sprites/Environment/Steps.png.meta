@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20ac7461b786544088b636a96a471f65
+guid: 0a6bbf7433c8b4a6ead395f265ae0df7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1229913837596066612
-    second: unfake-pixel-art 44_0
+      213: -3911565997155291308
+    second: Steps_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,14 +46,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 9
-  spritePivot: {x: 0.49823734, y: 0.30614433}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -113,23 +113,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: unfake-pixel-art 44_0
+      name: Steps_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 294
-        height: 244
+        x: 0
+        y: 48
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43340427e18811110800000000000000
-      internalID: 1229913837596066612
+      spriteID: 45fef00337357b9c0800000000000000
+      internalID: -3911565997155291308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steps_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae2e73347279431a841764e12d75706
+      internalID: -1625920425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steps_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9409943395546b1ab1f95e4e7ed7ee
+      internalID: -1616255495
       vertices: []
       indices: 
       edges: []
@@ -138,8 +182,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 8515645332e97406c93cf2cc49343df3
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +192,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      unfake-pixel-art 44_0: 1229913837596066612
+      Steps_0: -3911565997155291308
+      Steps_1: -1625920425
+      Steps_2: -1616255495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

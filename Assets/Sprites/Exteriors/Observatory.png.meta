@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 5bd502298d6ef4d0080bc4b09b28cf9a
+guid: 5de8cae2e1e2c4bba88794fc972d1960
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1071363216762607827
-    second: Windmills_0
-  - first:
-      213: -7651619820122879733
-    second: Windmills_1
-  - first:
-      213: 454930838306071302
-    second: Windmills_2
+      213: -7252507484307156637
+    second: Observatory_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,17 +46,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 9
+  spritePivot: {x: 0.48942414, y: 0.4529009}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -119,89 +113,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Windmills_0
+      name: Observatory_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 5
-        width: 143
-        height: 232
-      alignment: 9
-      pivot: {x: 0.47327653, y: 0.39175698}
+        x: 6
+        y: 0
+        width: 294
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -58.5, y: -85}
-        - {x: 44.5, y: -85}
-        - {x: 44.5, y: -11}
-        - {x: -58.5, y: -11}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 3d81e885b2f3ede00800000000000000
-      internalID: 1071363216762607827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Windmills_1
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 1
-        width: 142
-        height: 236
-      alignment: 9
-      pivot: {x: 0.49615544, y: 0.38665187}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: -52, y: -87}
-        - {x: 49, y: -87}
-        - {x: 49, y: -10}
-        - {x: -52, y: -10}
-      tessellationDetail: 0
-      bones: []
-      spriteID: b09cc39405cffc590800000000000000
-      internalID: -7651619820122879733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Windmills_2
-      rect:
-        serializedVersion: 2
-        x: 309
-        y: 5
-        width: 143
-        height: 232
-      alignment: 9
-      pivot: {x: 0.5, y: 0.41058186}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: -46.5, y: -87}
-        - {x: 47.5, y: -87}
-        - {x: 47.5, y: -11}
-        - {x: -46.5, y: -11}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 603aa96ef2d305600800000000000000
-      internalID: 454930838306071302
+      spriteID: 36192035edae95b90800000000000000
+      internalID: -7252507484307156637
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     customData: 
-    physicsShape: []
+    physicsShape:
+    - - {x: -128, y: -85.5}
+      - {x: -119, y: -67.5}
+      - {x: -97, y: -67.5}
+      - {x: -82, y: -88.5}
+      - {x: -45, y: -110.5}
+      - {x: 22, y: -95.5}
+      - {x: 43, y: -109.5}
+      - {x: 92, y: -91.5}
+      - {x: 130, y: -85.5}
+      - {x: 130, y: 4.5}
+      - {x: -128, y: 4.5}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -210,9 +159,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Windmills_0: 1071363216762607827
-      Windmills_1: -7651619820122879733
-      Windmills_2: 454930838306071302
+      Observatory_0: -7252507484307156637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
