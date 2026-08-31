@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 1c0a1d14d6ae9422ca1cd996e91f1a0b
+guid: 7514b2062d2a84e7681f717ed5f8d45b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6898465214236787873
-    second: Dock_0
+      213: -2489281587128395096
+    second: monterey_cypress_0
+  - first:
+      213: 8779292292619893261
+    second: monterey_cypress_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,14 +52,14 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 2
-  spritePivot: {x: 0.5, y: 1}
+  alignment: 9
+  spritePivot: {x: 0.5175252, y: 0.14033383}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dock_0
+      name: monterey_cypress_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 80
-        height: 220
+        x: 2
+        y: 8
+        width: 342
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,15 +131,43 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5bf602ff6ab340a0800000000000000
-      internalID: -6898465214236787873
+      spriteID: 8aa9a45d59b447dd0800000000000000
+      internalID: -2489281587128395096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monterey_cypress_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 4
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0afee053df46d970800000000000000
+      internalID: 8779292292619893261
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     customData: 
-    physicsShape: []
+    physicsShape:
+    - - {x: -5, y: -88}
+      - {x: -17, y: -108}
+      - {x: 26, y: -106}
+      - {x: 17, y: -89}
+      - {x: 24, y: -72}
+      - {x: -16, y: -72}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
@@ -148,7 +179,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dock_0: -6898465214236787873
+      monterey_cypress_0: -2489281587128395096
+      monterey_cypress_1: 8779292292619893261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
