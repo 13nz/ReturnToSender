@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 86773a289036e40258e5f42465e7a444
+guid: 4e2e59d19ea7a40588747ef60ac81f62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8897399104469426162
-    second: fence_white_horizontal_0
+      213: 1371886895637126668
+    second: old_tree_0
+  - first:
+      213: -2042198214742597166
+    second: old_tree_1
+  - first:
+      213: -7336606483780145678
+    second: old_tree_2
+  - first:
+      213: -2765412042523684141
+    second: old_tree_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,17 +55,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 9
-  spritePivot: {x: 0.5030722, y: 0.3841863}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -113,93 +122,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fence_white_horizontal_0
+      name: old_tree_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 24
-        height: 38
-      alignment: 9
-      pivot: {x: 0.50677943, y: 0.18197387}
+        x: 1
+        y: 21
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -12, y: -13}
-        - {x: 12, y: -13}
-        - {x: 12, y: -7}
-        - {x: -12, y: -7}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 2ff57c65859e97b70800000000000000
-      internalID: 8897399104469426162
+      spriteID: c0ed67eecdbe90310800000000000000
+      internalID: 1371886895637126668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_white_horizontal_1
+      name: old_tree_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 38
-      alignment: 9
-      pivot: {x: 0.51355886, y: 0.18197387}
+        x: 18
+        y: 2
+        width: 282
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -12, y: -13}
-        - {x: 12, y: -13}
-        - {x: 12, y: -7}
-        - {x: -12, y: -7}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: df3964da3711b47cbbfd510f183277ad
-      internalID: 609187524
+      spriteID: 2d1a4513b87a8a3e0800000000000000
+      internalID: -2042198214742597166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_white_horizontal_2
+      name: old_tree_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 24
-        height: 38
-      alignment: 9
-      pivot: {x: 0.5135601, y: 0.18197387}
+        x: 282
+        y: 20
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -12, y: -13}
-        - {x: 12, y: -13}
-        - {x: 12, y: -7}
-        - {x: -12, y: -7}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 1ed67715f28984d188772c940da4b5e7
-      internalID: 1724679162
+      spriteID: 2fde47526432f2a90800000000000000
+      internalID: -7336606483780145678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old_tree_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 18
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2d9cb26684f99d0800000000000000
+      internalID: -2765412042523684141
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     customData: 
-    physicsShape:
-    - - {x: -53, y: -12}
-      - {x: 53, y: -12}
-      - {x: 53, y: -5}
-      - {x: -53, y: -5}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -208,9 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fence_white_horizontal_0: 8897399104469426162
-      fence_white_horizontal_1: 609187524
-      fence_white_horizontal_2: 1724679162
+      old_tree_0: 1371886895637126668
+      old_tree_1: -2042198214742597166
+      old_tree_2: -7336606483780145678
+      old_tree_3: -2765412042523684141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
