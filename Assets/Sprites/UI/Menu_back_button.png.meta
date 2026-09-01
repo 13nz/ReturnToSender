@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b79a7751ca8b146508d6291d13240774
+guid: 1bd7b69c8753e43d2ac57853094cf19e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8407082493664595715
-    second: Menu_panel_0
+      213: 8632987330045841987
+    second: Menu_back_button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -113,23 +113,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Menu_panel_0
+      name: Menu_back_button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 256
-        height: 235
+        y: 41
+        width: 125
+        height: 41
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 75, z: 60, w: 52}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30f88404cf4fba470800000000000000
-      internalID: 8407082493664595715
+      spriteID: 34294d5bc388ec770800000000000000
+      internalID: 8632987330045841987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_back_button_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 125
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f2f7b34d4a3478bac3ad00fb2d321b
+      internalID: 1499442169
       vertices: []
       indices: 
       edges: []
@@ -138,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 982b197763d35437eb501e0ae4ecad5a
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +170,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Menu_panel_0: 8407082493664595715
+      Menu_back_button_0: 8632987330045841987
+      Menu_back_button_1: 1499442169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
