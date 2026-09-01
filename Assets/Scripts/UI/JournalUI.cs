@@ -20,6 +20,8 @@ public class JournalUI : MonoBehaviour
 
     private bool journalOpen;
 
+    public bool IsJournalOpen => journalOpen;
+
     // 0 = journal, 1 = envelope
     private int currentPage;
 

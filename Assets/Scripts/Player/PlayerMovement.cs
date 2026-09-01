@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     // references the shared dialogue manager so player movement can be disabled during conversations.
     private DialogueManager dialogueManager;
 
+    // references the journal so player movement can be disabled while the journal is open.
+    private JournalUI journalUI;
+
     private void Awake()
     {
         // destroys duplicate players created when a scene containing a player is loaded.
@@ -46,14 +49,31 @@ public class PlayerMovement : MonoBehaviour
 
         // finds the shared dialogue manager so movement can be disabled while dialogue is active.
         dialogueManager = FindFirstObjectByType<DialogueManager>();
+
+        // finds the shared journal so movement can be disabled while the journal is open.
+        journalUI = FindFirstObjectByType<JournalUI>();
     }
 
     private void Update()
     {
-        // prevents the player from moving while a dialogue conversation is active.
+        // prevents the player from moving while dialogue is active.
         if (dialogueManager != null && dialogueManager.IsDialogueActive)
         {
-            movementInput = Vector2.zero;
+            StopMovement();
+            return;
+        }
+
+        // prevents the player from moving while the journal is open.
+        if (journalUI != null && journalUI.IsJournalOpen)
+        {
+            StopMovement();
+            return;
+        }
+
+        // prevents the player from moving while the main menu is open.
+        if (Time.timeScale == 0f)
+        {
+            StopMovement();
             return;
         }
 
@@ -63,13 +83,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        // stops any remaining movement from being applied while dialogue is active.
+        // stops any remaining movement while dialogue is active.
         if (dialogueManager != null && dialogueManager.IsDialogueActive)
         {
-            rb.linearVelocity = Vector2.zero;
+            StopPhysicsMovement();
             return;
         }
+
+        // stops any remaining movement while the journal is open.
+        if (journalUI != null && journalUI.IsJournalOpen)
+        {
+            StopPhysicsMovement();
+            return;
+        }
+
+        // stops any remaining movement while the main menu is open.
+        if (Time.timeScale == 0f)
+        {
+            StopPhysicsMovement();
+            return;
+        }
+
         MovePlayer();
     }
 
@@ -111,6 +145,20 @@ public class PlayerMovement : MonoBehaviour
         // moves the rigidbody through Unity's physics system so collisions remain active.
         Vector2 newPosition = rb.position + movementInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
+    }
+
+    private void StopMovement()
+    {
+        // clears movement input and switches the player to the appropriate idle animation.
+        movementInput = Vector2.zero;
+        StopPhysicsMovement();
+        UpdateAnimation();
+    }
+
+    private void StopPhysicsMovement()
+    {
+        // immediately stops any movement that was already applied before the menu or journal opened.
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void UpdateAnimation()
