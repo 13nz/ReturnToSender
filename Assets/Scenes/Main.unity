@@ -245563,7 +245563,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 562453384}
   sfxVolumeSlider: {fileID: 900228304}
   fullscreenToggle: {fileID: 225900693}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 3630224d1f73742d38656b91a01cb231, type: 2}
 --- !u!1 &2132755204
 GameObject:
   m_ObjectHideFlags: 0
