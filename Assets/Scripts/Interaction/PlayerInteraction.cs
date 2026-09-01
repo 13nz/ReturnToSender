@@ -9,7 +9,6 @@ public class PlayerInteraction : MonoBehaviour
     private Interactable currentInteractable;
     private SpriteRenderer interactionIcon;
     private DialogueManager dialogueManager;
-    
 
     private void Awake()
     {
@@ -81,6 +80,12 @@ public class PlayerInteraction : MonoBehaviour
             }
 
             if (interactable == null)
+                continue;
+
+            // ignores closed doors so they cannot display the interaction icon or be selected.
+            Door door = interactable as Door;
+
+            if (door != null && !door.IsInteractable)
                 continue;
 
             // measures the distance between the player and the nearby interaction collider.

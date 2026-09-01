@@ -286,11 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: npcId
-      value: hippie
+      value: herbalist
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: characterName
-      value: Hippie
+      value: Herbalist
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: journalInformation
@@ -582,7 +582,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 5.548844, y: 1.3535593}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}
@@ -628,7 +628,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 10.022345, y: 7.164856}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}
@@ -674,7 +674,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -8.239307, y: 4.981298}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}
@@ -720,7 +720,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -3.01513, y: 0.7085861}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}
@@ -766,7 +766,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 1.9694848, y: 7.1021156}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}
@@ -812,7 +812,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.2976774}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.1666667, y: 0, z: 1.375, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 29.291666, y: 15.958333}
     newSize: {x: 29.291666, y: 15.958333}

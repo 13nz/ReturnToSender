@@ -30,14 +30,22 @@ public class NPCInteraction : Interactable
             return;
         }
 
-        // records that the player has spoken to this npc before starting the conversation.
+        // records the conversation and checks whether this is the first time
+        // the player has spoken to this npc.
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.RecordNPCConversation(
+            bool firstConversation = GameManager.Instance.RecordNPCConversation(
                 npcId,
                 characterName,
                 journalInformation
             );
+
+            // only advances the story checkpoint the first time this npc
+            // is spoken to.
+            if (firstConversation)
+            {
+                GameManager.Instance.CompleteNPCCheckpoint(npcId);
+            }
         }
 
         // starts this npc's conversation using the dialogue lines assigned in the inspector.

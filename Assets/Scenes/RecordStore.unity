@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: characterName
-      value: Vinyl Nerd
+      value: Record Store Employee
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: journalInformation
