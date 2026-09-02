@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0a86c54431be94311b7184a7cdec127b
+guid: 3a6182c110cb044f19e4167f345f3600
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6561122865901399014
-    second: closed_sign_0
+      213: 1567772400913173300
+    second: Streetlamp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 9
-  spritePivot: {x: 0.49999997, y: 0.9945408}
+  spritePivot: {x: 0.504744, y: 0.33943477}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: closed_sign_0
+      name: Streetlamp_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 28
-        height: 30
+        y: 4
+        width: 86
+        height: 187
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a14114a048532f4a0800000000000000
-      internalID: -6561122865901399014
+      spriteID: 43b471531b8d1c510800000000000000
+      internalID: 1567772400913173300
       vertices: []
       indices: 
       edges: []
@@ -137,15 +137,13 @@ TextureImporter:
     outline: []
     customData: 
     physicsShape:
-    - - {x: 14, y: 5}
-      - {x: 4, y: 15}
-      - {x: -3, y: 15}
-      - {x: -14, y: 5}
-      - {x: -14, y: -15}
-      - {x: 14, y: -15}
-    - - {x: -4, y: 3}
-      - {x: 0, y: 8}
-      - {x: 5, y: 3}
+    - - {x: -26, y: -45.5}
+      - {x: -28, y: -73.5}
+      - {x: -30, y: -84.5}
+      - {x: -14, y: -84.5}
+      - {x: -16, y: -73.5}
+      - {x: -18, y: -35.5}
+      - {x: -30, y: -32.5}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
@@ -157,7 +155,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      closed_sign_0: -6561122865901399014
+      Streetlamp_0: 1567772400913173300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
