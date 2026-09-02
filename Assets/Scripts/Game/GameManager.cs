@@ -174,15 +174,25 @@ public class GameManager : MonoBehaviour
             building.UpdateBuildingState();
         }
 
-        // NightLight[] lights = FindObjectsByType<NightLight>(
-        //     FindObjectsInactive.Include,
-        //     FindObjectsSortMode.None
-        // );
+        NightLight[] lights = FindObjectsByType<NightLight>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
 
-        // foreach (NightLight light in lights)
-        // {
-        //     light.UpdateLight();
-        // }
+        foreach (NightLight light in lights)
+        {
+            light.UpdateLight();
+        }
+
+        TimedParticleSystem[] particleSystems = FindObjectsByType<TimedParticleSystem>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
+
+        foreach (TimedParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.UpdateParticleSystem();
+        }
     }
 
     public NPCCheckpoint GetCurrentNPCCheckpoint()
