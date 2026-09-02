@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
             building.UpdateBuildingState();
         }
 
+        // togggle lights
         NightLight[] lights = FindObjectsByType<NightLight>(
             FindObjectsInactive.Include,
             FindObjectsSortMode.None
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
             light.UpdateLight();
         }
 
+        // toggle particels
         TimedParticleSystem[] particleSystems = FindObjectsByType<TimedParticleSystem>(
             FindObjectsInactive.Include,
             FindObjectsSortMode.None
@@ -192,6 +194,17 @@ public class GameManager : MonoBehaviour
         foreach (TimedParticleSystem particleSystem in particleSystems)
         {
             particleSystem.UpdateParticleSystem();
+        }
+
+        // game ending start
+        EndingGate[] endingGates = FindObjectsByType<EndingGate>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
+
+        foreach (EndingGate endingGate in endingGates)
+        {
+            endingGate.UpdateGate();
         }
     }
 
