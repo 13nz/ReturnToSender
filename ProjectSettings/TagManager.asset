@@ -47,9 +47,6 @@ TagManager:
   - name: World
     uniqueID: 3166626285
     locked: 0
-  - name: Signs
-    uniqueID: 2638617749
-    locked: 0
   - name: Buildings
     uniqueID: 1288800721
     locked: 0
@@ -61,6 +58,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1877046471
+    locked: 0
+  - name: Lights
+    uniqueID: 2638617749
     locked: 0
   - name: UI
     uniqueID: 2864592169

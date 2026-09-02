@@ -164,17 +164,25 @@ public class GameManager : MonoBehaviour
 
     private void RefreshBuildings()
     {
-        // finds every building currently loaded in the main scene.
         Building[] buildings = FindObjectsByType<Building>(
             FindObjectsInactive.Include,
             FindObjectsSortMode.None
         );
 
-        // updates every building using the current story progression.
         foreach (Building building in buildings)
         {
             building.UpdateBuildingState();
         }
+
+        // NightLight[] lights = FindObjectsByType<NightLight>(
+        //     FindObjectsInactive.Include,
+        //     FindObjectsSortMode.None
+        // );
+
+        // foreach (NightLight light in lights)
+        // {
+        //     light.UpdateLight();
+        // }
     }
 
     public NPCCheckpoint GetCurrentNPCCheckpoint()
