@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8fc37e73f6e5841a79b1f64728b73a8b
+guid: 46fe6dcb46d344e439be3bc6d897100f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1538279517034516304
-    second: Marina_sign_0
+      213: -6596360268114634296
+    second: DockH_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 9
-  spritePivot: {x: 0.50934196, y: 0.18529221}
+  spritePivot: {x: 0.48975933, y: 0.9234255}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Marina_sign_0
+      name: DockH_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 9
-        width: 270
-        height: 218
+        x: 9
+        y: 0
+        width: 213
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05f0a121211195510800000000000000
-      internalID: 1538279517034516304
+      spriteID: 8c9d68009450574a0800000000000000
+      internalID: -6596360268114634296
       vertices: []
       indices: 
       edges: []
@@ -137,14 +137,14 @@ TextureImporter:
     outline: []
     customData: 
     physicsShape:
-    - - {x: -105.5, y: -106}
-      - {x: -75.5, y: -106}
-      - {x: -75.5, y: -60}
-      - {x: -105.5, y: -60}
-    - - {x: 78.5, y: -106}
-      - {x: 107.5, y: -106}
-      - {x: 107.5, y: -63}
-      - {x: 78.5, y: -63}
+    - - {x: -100, y: -31}
+      - {x: 102, y: -31}
+      - {x: 102, y: -22}
+      - {x: -100, y: -22}
+    - - {x: -100, y: 29}
+      - {x: 99, y: 29}
+      - {x: 99, y: 38}
+      - {x: -100, y: 38}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
@@ -156,7 +156,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Marina_sign_0: 1538279517034516304
+      DockH_0: -6596360268114634296
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
