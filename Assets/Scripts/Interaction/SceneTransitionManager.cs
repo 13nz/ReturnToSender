@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneTransitionManager : MonoBehaviour
 {
@@ -11,6 +13,12 @@ public class SceneTransitionManager : MonoBehaviour
 
     // tracks whether a scene transition is currently waiting to be completed.
     private static bool transitionPending;
+
+    [Header("fade settings")]
+    [SerializeField] private CanvasGroup fadeCanvasGroup;
+    [SerializeField] private float fadeDuration = 0.5f;
+
+    private bool isTransitioning;
 
     private void Awake()
     {
@@ -26,7 +34,19 @@ public class SceneTransitionManager : MonoBehaviour
         // keeps this manager alive when the current scene is replaced.
         DontDestroyOnLoad(gameObject);
 
-        // listens for scenes finishing their load so the player can be positioned at the correct door.
+        // finds the fade canvas group if it was not assigned in the Inspector.
+        if (fadeCanvasGroup == null)
+        {
+            GameObject fadeObject = GameObject.Find("BlackFade");
+
+            if (fadeObject != null)
+                fadeCanvasGroup = fadeObject.GetComponent<CanvasGroup>();
+        }
+
+        if (fadeCanvasGroup != null)
+            fadeCanvasGroup.alpha = 0f;
+
+        // listens for scenes finishing their load.
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -46,13 +66,23 @@ public class SceneTransitionManager : MonoBehaviour
             return;
         }
 
-        // stores the door that should be used as the player's arrival point.
-        destinationDoorId = doorId;
+        // prevents duplicate transition requests.
+        if (instance == null || instance.isTransitioning)
+            return;
 
-        // tells the scene-loaded event that this load was caused by a door interaction.
+        destinationDoorId = doorId;
         transitionPending = true;
 
-        // loads the requested destination scene.
+        instance.StartCoroutine(instance.FadeAndLoadScene(sceneName));
+    }
+
+    private IEnumerator FadeAndLoadScene(string sceneName)
+    {
+        isTransitioning = true;
+
+        // fades the screen to black before loading the new scene.
+        yield return FadeTo(1f);
+
         SceneManager.LoadScene(sceneName);
     }
 
@@ -62,7 +92,6 @@ public class SceneTransitionManager : MonoBehaviour
         if (!transitionPending)
             return;
 
-        // clears the pending state so this transition is processed only once.
         transitionPending = false;
 
         // finds the persistent player in the newly loaded scene.
@@ -71,35 +100,67 @@ public class SceneTransitionManager : MonoBehaviour
         if (player == null)
         {
             Debug.LogWarning("no persistent player with the 'Player' tag was found.");
-            return;
         }
-
-        // finds all doors in the destination scene so the matching arrival door can be located.
-        Door[] doors = FindObjectsByType<Door>(FindObjectsSortMode.None);
-
-        foreach (Door door in doors)
+        else
         {
-            // ignores doors that do not represent the doorway used for this transition.
-            if (door.DoorId != destinationDoorId)
-                continue;
+            // finds all doors in the destination scene.
+            Door[] doors = FindObjectsByType<Door>(FindObjectsSortMode.None);
 
-            // the player enters an interior from above the door and returns to Main from below it.
-            Vector3 spawnOffset = scene.name == "Main"
-                ? Vector3.down
-                : Vector3.up;
+            foreach (Door door in doors)
+            {
+                // ignores doors that do not represent the doorway used for this transition.
+                if (door.DoorId != destinationDoorId)
+                    continue;
 
-            // places the player at the correct side of the destination door.
-            player.transform.position = door.transform.position + spawnOffset;
+                // the player enters an interior from above the door and returns to Main from below it.
+                Vector3 spawnOffset = scene.name == "Main"
+                    ? Vector3.down
+                    : Vector3.up;
 
-            // plays the closing sound after the player arrives in the new scene.
-            door.PlayOpenSound();
+                // places the player at the correct side of the destination door.
+                player.transform.position = door.transform.position + spawnOffset;
 
-            return;
+                // plays the opening sound after the player arrives.
+                door.PlayOpenSound();
+
+                break;
+            }
         }
 
-        Debug.LogWarning(
-            $"no door with id '{destinationDoorId}' was found in scene '{scene.name}'."
-        );
+        // fades the screen back in after the destination scene is ready.
+        StartCoroutine(FinishTransition());
+    }
+
+    private IEnumerator FinishTransition()
+    {
+        yield return FadeTo(0f);
+        isTransitioning = false;
+    }
+
+    private IEnumerator FadeTo(float targetAlpha)
+    {
+        if (fadeCanvasGroup == null)
+            yield break;
+
+        float startingAlpha = fadeCanvasGroup.alpha;
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            float fadeAmount = Mathf.Clamp01(timer / fadeDuration);
+
+            fadeCanvasGroup.alpha = Mathf.Lerp(
+                startingAlpha,
+                targetAlpha,
+                fadeAmount
+            );
+
+            yield return null;
+        }
+
+        fadeCanvasGroup.alpha = targetAlpha;
     }
 
     private void OnDestroy()

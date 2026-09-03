@@ -78,6 +78,7 @@ public class MainMenuUI : MonoBehaviour
         // returns from the settings page to the main menu.
         ShowMainMenu();
     }
+    
 
     private void ShowMainMenu()
     {
