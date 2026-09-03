@@ -270,23 +270,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
       propertyPath: journalInformation
-      value: barista journal info
+      value: He said to ask about the oils at the apothecary
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: diag 1
+      value: There was an event, yes. I remember because nobody ordered coffee until
+        it was nearly over.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: diag 2
+      value: "They were testing something in the cupcakes. Oils, I think. Essences.
+        They\u2019d put a little in each one and watched people\u2019s reactions."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: diag 3
+      value: "Someone mentioned banana slugs. They said the slugs had been gathering
+        outside the caf\xE9 all morning, which apparently meant something to them."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: ...
+      value: I remember one of them asking whether the banana slug extract had been
+        diluted. Another person said it was supposed to be stronger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: Nobody seemed ill. Nobody seemed particularly pleased, either. They
+        took notes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4a80b8872d2344a769cd94ae77c9be06, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: I assumed the ingredients came from the apothecary. That would be the
+        sensible place to ask.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

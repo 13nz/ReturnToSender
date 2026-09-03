@@ -278,23 +278,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: journalInformation
-      value: dwadawdwadadwadwdw
+      value: He said he heard the record at a party with weird cupcakes from the
+        bakery
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: awdwadawdawd
+      value: I know the record. Or I know of it. Someone brought it to a party once.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: awdawdawdawd
+      value: I remember the music more than the people. It had a way of making everyone
+        stop talking at the same time.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dawdawdawdawdwad
+      value: There were cupcakes, too. Little chipalopes on top of them. Good likenesses,
+        considering nobody agrees on what a chipalope is supposed to look like. Looked
+        just like the seal on your envelope.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: dwadawdawd
+      value: There were banana slugs on some of the others. Actual little sugar slugs,
+        I think. Or close enough.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: "That\u2019s not especially unusual here. You see banana slugs everywhere
+        outside after it rains. People leave them alone. There\u2019s an old belief
+        that they gather around places where something strange has happened."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: They came from the local bakery. I remember that much.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

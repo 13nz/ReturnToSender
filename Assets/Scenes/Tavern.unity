@@ -286,23 +286,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: journalInformation
-      value: dsadawdwadsdsdadw
+      value: He said to check the motel for the guest in room 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: dadadsdasdawda
+      value: "I couldn\u2019t tell you who makes the wine. It gets delivered regularly,
+        but not by anyone I know well enough to ask."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: dawdawdasdsads
+      value: "We don\u2019t serve it anymore. Too many people complained about the
+        taste, and eventually there weren\u2019t enough people ordering it to justify
+        keeping it on the menu."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dsadasdasd
+      value: A tourist asked about it once. A lot of questions. Where the flowers
+        came from, who made the wine, whether the recipe had changed.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: dsadasdasdasd
+      value: "They asked whether banana slug essence was still used in the preparation.
+        I told them I\u2019d never heard of banana slugs being used in wine. They
+        said they hadn\u2019t asked whether I\u2019d heard of it."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: "They asked whether it was made in a laboratory beneath the old observatory.
+        I told them I\u2019d never heard of a laboratory beneath anything."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: They were staying at the motel. Room 49, I think. The receptionist might
+        remember them better than I do.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

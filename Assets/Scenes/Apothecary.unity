@@ -294,23 +294,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: journalInformation
-      value: fdsfsdfdsfsdfs
+      value: The herbalist said the florist might know more about the flowers in
+        the essence
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: fsdffsdf
+      value: I remember the oils. They were an unusual combination, but not an impossible
+        one.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: fdsfsdfsdfs
+      value: Mushroom extracts, banana slug essence, and wildflowers from the hill.
+        The mixture is normally used in making wax. Not the sort of thing people
+        generally put in food.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: fsdfdsfsdfsdf
+      value: Banana slug essence has been used here for generations. Mostly in waxes,
+        salves, and things meant to preserve other things. It has a particular smell.
+        Difficult to mistake once you know it.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: fdsfdsfsdfsd
+      value: "There\u2019s an old local belief that banana slugs gather around places
+        where something has been hidden, disturbed, or otherwise made difficult to
+        explain. I\u2019ve never put much stock in it."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: I did wonder whether they were trying to make edible wax. It would explain
+        the cupcakes, though not why anyone would want to eat it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: The flowers were the difficult part. They came from the upper hill,
+        near the old observatory. You should ask the florist. She knows which ones
+        grow there.
       objectReference: {fileID: 0}
     - target: {fileID: 9066209186180376698, guid: 10348c9f50d1745e0bb65f45c0e6569a, type: 3}
       propertyPath: m_LocalPosition.x

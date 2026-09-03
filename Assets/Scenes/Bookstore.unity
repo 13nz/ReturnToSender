@@ -278,23 +278,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: journalInformation
-      value: dwadawdadawdawddaw
+      value: The book seller said I should ask the record store employee about the
+        Correspondence Society's record
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: qdfsfafsdf
+      value: "Yes. I\u2019ve seen that seal in a local history volume. It was associated
+        with the Old Mariner\u2019s Bay Correspondence Society."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: fafadfffafadf
+      value: The book says they were interested in preserving letters, records, and
+        other things that people had a habit of throwing away. It also says they
+        eventually disbanded.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dawdwadadwadad
+      value: There was a record, too. A strange one. They commissioned it, or helped
+        produce it, or perhaps only insisted that it be played at certain gatherings.
+        The account is vague.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: awdawdawdawwdadw
+      value: "Some people claimed there were messages hidden beneath the music. I\u2019ve
+        never heard it myself. The record store might still have a copy."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

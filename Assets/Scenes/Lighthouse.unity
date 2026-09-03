@@ -282,23 +282,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
       propertyPath: journalInformation
-      value: dawdawdwadawdawdawd
+      value: I should probably try the observatory...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: adadawdwadawdad
+      value: "The observatory is beyond the hill, past the old service path. It\u2019s
+        been out of service for years. That\u2019s the official wording."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: dawdawdawdawdawdwad
+      value: The gate was put there after the hill was closed. The historical people
+        wanted to keep the building intact. The environmental people wanted to keep
+        visitors away from the tree. I never learned whether those were two groups
+        or one group with two names.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dwadawdawdwadawda
+      value: The slugs gather around the upper path after rain. They always have.
+        Some say they gather where something is hidden. Others say they gather where
+        something is waiting.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: dawdawdawdawd
+      value: "I\u2019ve never known which version people prefer."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: The tourist from the motel asked me about the place. Wanted to know
+        whether anyone still used the instruments. Whether the lower rooms were accessible.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: I told them the gate was locked.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 24d6f404eb9fb44d882c55ffdca8dd0f, type: 3}
+      propertyPath: 'dialogueLines.Array.data[6]'
+      value: It should still be locked.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

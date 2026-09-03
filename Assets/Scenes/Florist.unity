@@ -278,23 +278,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
       propertyPath: journalInformation
-      value: dawdawdawdwadawdawdawdaww
+      value: She said the tavern used to serve wine made from the wildflowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: addawdadawd
+      value: "Those flowers do grow around the observatory. Mostly along the old
+        paths, where people aren\u2019t supposed to go anymore."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: dawdawdawdawd
+      value: The banana slugs are plentiful up there, too. More than they used to
+        be, according to some people. They gather beneath the old tree, especially
+        after rain. The wildflowers seem to be growing in their trail.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dwadawdawdawd
+      value: "The old stories say they gather around mysterious places. Old wells.
+        Abandoned houses. Places where someone disappeared. I\u2019ve always assumed
+        they simply prefer damp ground."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: dwadawdawdawda
+      value: The flowers are also used in a traditional local wine. An acquired taste.
+        Bitter at first, then strangely sweet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: "The tavern used to serve it. I don\u2019t know who makes it now. I
+        only know that someone still comes for the flowers."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
+      propertyPath: 'dialogueLines.Array.data[5]'
+      value: The hill was closed when the observatory went out of service. They said
+        the building was unsafe, but the tree was the real concern. An old endangered
+        thing, growing near the upper path.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: fa852f8efa7984eaeb899fcc67fdbd93, type: 3}
+      propertyPath: 'dialogueLines.Array.data[6]'
+      value: The preservation society helped close the area. Or the environmentalist
+        society. People used both names. They were very serious about keeping visitors
+        away.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

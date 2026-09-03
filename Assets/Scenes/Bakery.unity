@@ -278,23 +278,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: journalInformation
-      value: bakery journal update
+      value: She said the cupcakes were made for an event at the cafe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: diag 1
+      value: I made those, yes. Or I made the cupcakes. The decorations were a separate
+        matter.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: diag 2
+      value: The chipalopes and banana slugs were already part of the order. I remember
+        asking whether the slugs were meant to be decorative or symbolic. Nobody
+        answered.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: diag 3
+      value: "I don\u2019t remember who ordered them. They were picked up in a hurry,
+        and I had three other orders waiting."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: diag 4
+      value: "They were taken to an event at the caf\xE9. A small one, I think. Not
+        a birthday, exactly. No children, no presents. Just people sitting around
+        and listening to something."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: "The caf\xE9 might remember who was there."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

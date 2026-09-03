@@ -767,23 +767,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: af73619e05e6a42daae843f3eed561c8, type: 3}
       propertyPath: journalInformation
-      value: journal infromatoipn
+      value: The potsmaster said I should ask about the wax seal at the bookstore
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: af73619e05e6a42daae843f3eed561c8, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
-      value: dialog 1
+      value: This was left under the post office door. No stamp, no address, no indication
+        that it was ever meant to enter the system.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: af73619e05e6a42daae843f3eed561c8, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: dialog 2
+      value: "The seal is familiar, though I can\u2019t place it. I saw a picture
+        of it once, in a book."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: af73619e05e6a42daae843f3eed561c8, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
-      value: dialog 3
+      value: "ou might ask the bookseller. If the picture still exists, they\u2019ll
+        know where to find it."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: af73619e05e6a42daae843f3eed561c8, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: dialog 4
+      value: Just try to deliver it.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
