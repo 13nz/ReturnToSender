@@ -18,6 +18,10 @@ public class JournalUI : MonoBehaviour
     [Header("journal entry")]
     [SerializeField] private GameObject journalEntryPrefab;
 
+
+    // sounds 
+    private AudioSource audioSource;
+    private AudioClip paperRustleSound;
     private bool journalOpen;
 
     public bool IsJournalOpen => journalOpen;
@@ -27,6 +31,28 @@ public class JournalUI : MonoBehaviour
 
     private void Awake()
     {
+        // dound effect
+        // gets the existing AudioSource if one is already attached.
+        audioSource = GetComponent<AudioSource>();
+
+        // adds an AudioSource if one is missing.
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // loads the paper rustle sound from Resources.
+        paperRustleSound =
+            Resources.Load<AudioClip>("Audio/Sounds/paper_rustle");
+
+        // configures the AudioSource.
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = 1f;
+        audioSource.pitch = 1f;
+        audioSource.panStereo = 0f;
+        audioSource.reverbZoneMix = 1f;
         // keeps the journal canvas and its children alive when changing scenes.
         DontDestroyOnLoad(gameObject);
     }
@@ -68,6 +94,11 @@ public class JournalUI : MonoBehaviour
 
     private void ToggleJournal()
     {
+        // plays the paper rustle when the notes open.
+        if (paperRustleSound != null)
+        {
+            audioSource.PlayOneShot(paperRustleSound);
+        }
         // switches the documents interface between its open and closed states.
         SetJournalOpen(!journalOpen);
     }
@@ -102,9 +133,16 @@ public class JournalUI : MonoBehaviour
 
     public void PreviousPage()
     {
+        
         // ignores button presses while the documents interface is closed.
         if (!journalOpen)
             return;
+
+        // plays the paper rustle when the notes open.
+        if (paperRustleSound != null)
+        {
+            audioSource.PlayOneShot(paperRustleSound);
+        }
 
         // moves to the previous page.
         currentPage--;
@@ -123,6 +161,12 @@ public class JournalUI : MonoBehaviour
         // ignores button presses while the documents interface is closed.
         if (!journalOpen)
             return;
+
+        // plays the paper rustle when the notes open.
+        if (paperRustleSound != null)
+        {
+            audioSource.PlayOneShot(paperRustleSound);
+        }
 
         // moves to the next page.
         currentPage++;

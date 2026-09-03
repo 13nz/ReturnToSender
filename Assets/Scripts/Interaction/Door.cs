@@ -6,44 +6,112 @@ public class Door : Interactable
     [SerializeField] private string destinationScene;
     [SerializeField] private string doorId;
 
-    // stores whether this door can currently be interacted with.
+    [Header("door audio settings")]
+    [SerializeField] private float volume = 1f;
+    [SerializeField] private float spatialBlend = 0f;
+    [SerializeField] private float minDistance = 1f;
+    [SerializeField] private float maxDistance = 10f;
+
+    private AudioSource audioSource;
+    private AudioClip openSound;
+    private AudioClip closeSound;
     private bool interactable = true;
 
-    // provides the door id so the transition manager can find the matching door after a scene change.
     public string DoorId => doorId;
 
-    // provides the current interaction state so the player interaction system
-    // knows whether to show the interaction icon.
     public bool IsInteractable => interactable;
 
-    // enables or disables interaction with this door.
+    private void Awake()
+    {
+        // gets the existing AudioSource if one is already attached.
+        audioSource = GetComponent<AudioSource>();
+
+        // adds an AudioSource if this door does not already have one.
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // loads the door sounds from the Resources folder.
+        openSound = Resources.Load<AudioClip>("Audio/Sounds/door_open");
+        closeSound = Resources.Load<AudioClip>("Audio/Sounds/door_close");
+
+        // configures the AudioSource.
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.priority = 128;
+        audioSource.volume = volume;
+        audioSource.pitch = 1f;
+        audioSource.panStereo = 0f;
+        audioSource.spatialBlend = spatialBlend;
+        audioSource.reverbZoneMix = 1f;
+        audioSource.minDistance = minDistance;
+        audioSource.maxDistance = maxDistance;
+        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+
+        // warns if either sound could not be loaded.
+        if (openSound == null)
+        {
+            Debug.LogWarning(
+                $"could not load door_open.mp3 for {gameObject.name}. " +
+                "make sure it is inside Assets/Resources/Audio/Sounds."
+            );
+        }
+
+        if (closeSound == null)
+        {
+            Debug.LogWarning(
+                $"could not load door_close.mp3 for {gameObject.name}. " +
+                "make sure it is inside Assets/Resources/Audio/Sounds."
+            );
+        }
+    }
+
     public void SetInteractable(bool canInteract)
     {
         interactable = canInteract;
     }
 
-    // starts a scene transition when the player interacts with this door.
     public override void Interact()
     {
-        // prevents the door from being used while the building is closed.
         if (!interactable)
             return;
 
-        // prevents a missing destination scene from causing a confusing scene-loading error.
         if (string.IsNullOrWhiteSpace(destinationScene))
         {
-            Debug.LogWarning($"no destination scene assigned to {gameObject.name}.");
+            Debug.LogWarning(
+                $"no destination scene assigned to {gameObject.name}."
+            );
             return;
         }
 
-        // prevents the destination scene from loading without a matching arrival door.
         if (string.IsNullOrWhiteSpace(doorId))
         {
-            Debug.LogWarning($"no door id assigned to {gameObject.name}.");
+            Debug.LogWarning(
+                $"no door id assigned to {gameObject.name}."
+            );
             return;
         }
 
-        // asks the persistent transition manager to load the destination and remember this door id.
+
         SceneTransitionManager.LoadScene(destinationScene, doorId);
+    }
+
+    public void PlayOpenSound()
+    {
+        // plays when the player enters a scene through this door.
+        if (openSound != null)
+        {
+            audioSource.PlayOneShot(openSound);
+        }
+    }
+
+    public void PlayCloseSound()
+    {
+        // plays when the player exits a scene through this door.
+        if (closeSound != null)
+        {
+            audioSource.PlayOneShot(closeSound);
+        }
     }
 }

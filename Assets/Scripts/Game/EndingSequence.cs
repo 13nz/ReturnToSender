@@ -24,6 +24,14 @@ public class EndingSequence : MonoBehaviour
     [SerializeField] private float downwardDuration = 0.8f;
     [SerializeField] private float fadeDuration = 1.2f;
 
+    [Header("ending sounds")]
+    [SerializeField] private float soundVolume = 1f;
+
+    // audio
+    private AudioSource audioSource;
+    private AudioClip whooshSound;
+    private AudioClip chipalopeSound;
+
     private bool endingStarted;
 
     private Vector3 chipalopeStartPosition;
@@ -32,6 +40,31 @@ public class EndingSequence : MonoBehaviour
 
     private void Awake()
     {
+        // gets the existing AudioSource if one is already attached.
+        audioSource = GetComponent<AudioSource>();
+
+        // adds an AudioSource if one is missing.
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // loads the Chipalope encounter sounds from Resources.
+        whooshSound =
+            Resources.Load<AudioClip>("Audio/Sounds/whoosh");
+
+        chipalopeSound =
+            Resources.Load<AudioClip>("Audio/Sounds/chipalope_sound");
+
+        // configures the AudioSource.
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.spatialBlend = 0f;
+        audioSource.volume = soundVolume;
+        audioSource.pitch = 1f;
+        audioSource.panStereo = 0f;
+        audioSource.reverbZoneMix = 1f;
+        
         // stores the original Chipalope position and colors.
         chipalopeStartPosition = chipalope.position;
         chipalopeStartColor = chipalopeRenderer.color;
@@ -76,8 +109,20 @@ public class EndingSequence : MonoBehaviour
         invisibleChipalopeColor.a = 0f;
         chipalopeRenderer.color = invisibleChipalopeColor;
 
+        // plays the whoosh as the Chipalope begins appearing.
+        if (whooshSound != null)
+        {
+            audioSource.PlayOneShot(whooshSound);
+        }
+
         // fades the Chipalope into view.
         yield return FadeChipalopeIn();
+
+        // plays the Chipalope sound immediately after it finishes appearing.
+        if (chipalopeSound != null)
+        {
+            audioSource.PlayOneShot(chipalopeSound);
+        }
 
         // waits briefly before the letter appears.
         yield return new WaitForSeconds(letterAppearDelay);

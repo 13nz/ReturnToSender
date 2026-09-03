@@ -88,8 +88,11 @@ public class SceneTransitionManager : MonoBehaviour
                 ? Vector3.down
                 : Vector3.up;
 
-            // 24 pixels at 24 pixels per unit equals one Unity unit.
+            // places the player at the correct side of the destination door.
             player.transform.position = door.transform.position + spawnOffset;
+
+            // plays the closing sound after the player arrives in the new scene.
+            door.PlayOpenSound();
 
             return;
         }
