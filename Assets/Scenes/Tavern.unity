@@ -278,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: npcId
-      value: bartender
+      value: barkeeper
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: characterName
-      value: Bartender
+      value: Barkeeper
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: journalInformation
