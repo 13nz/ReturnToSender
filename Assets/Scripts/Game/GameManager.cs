@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log($"time scale: {Time.timeScale}");
         // prevents duplicate game managers when scenes are loaded
         if (Instance != null && Instance != this)
         {
