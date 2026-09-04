@@ -18,6 +18,9 @@ public class JournalUI : MonoBehaviour
     [Header("journal entry")]
     [SerializeField] private GameObject journalEntryPrefab;
 
+    [Header("journal scrolling")]
+    [SerializeField] private ScrollRect notesScrollView;
+
 
     // sounds 
     private AudioSource audioSource;
@@ -112,10 +115,17 @@ public class JournalUI : MonoBehaviour
         {
             if (journalOpen)
             {
+                // hides subtitles while the journal is open
+                OpeningTutorialManager.Instance.SetJournalSubtitleSuppressed(true);
+
+                // advances the opening tutorial if appropriate
                 OpeningTutorialManager.Instance.NotifyJournalOpened();
             }
             else
             {
+                // allows subtitles to become visible again
+                OpeningTutorialManager.Instance.SetJournalSubtitleSuppressed(false);
+
                 OpeningTutorialManager.Instance.NotifyJournalClosed();
             }
         }
@@ -132,7 +142,6 @@ public class JournalUI : MonoBehaviour
 
             return;
         }
-        
 
         // always start on the journal when opening the documents interface
         currentPage = 0;
@@ -230,10 +239,14 @@ public class JournalUI : MonoBehaviour
                 npcList
             );
 
-            // finds the text components belonging to this journal entry
-            TMP_Text[] textFields = entry.GetComponentsInChildren<TMP_Text>();
+            // makes sure the entry starts at its normal scale
+            entry.transform.localScale = Vector3.one;
 
-            // displays the npcs name in the first text field
+            // finds the text components belonging to this journal entry
+            TMP_Text[] textFields =
+                entry.GetComponentsInChildren<TMP_Text>();
+
+            // displays the npc name in the first text field
             if (textFields.Length > 0)
             {
                 textFields[0].text = record.Name;
@@ -242,8 +255,22 @@ public class JournalUI : MonoBehaviour
             // displays the information learned from the npc in the second text field
             if (textFields.Length > 1)
             {
-                textFields[1].text = string.Join("\n", record.Information);
+                textFields[1].text =
+                    string.Join("\n", record.Information);
             }
+        }
+
+        // rebuilds the layout immediately after adding the entries
+        Canvas.ForceUpdateCanvases();
+
+        if (notesScrollView != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(
+                npcList as RectTransform
+            );
+
+            // starts at the top whenever the journal is opened
+            notesScrollView.verticalNormalizedPosition = 1f;
         }
     }
 }

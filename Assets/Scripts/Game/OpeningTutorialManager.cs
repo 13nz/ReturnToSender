@@ -25,6 +25,15 @@ public class OpeningTutorialManager : MonoBehaviour
 
     private bool tutorialIsActive;
 
+    // tracks whether subtitles should be hidden because of dialogue
+    private bool dialogueSubtitleSuppressed;
+
+    // tracks whether subtitles should be hidden because of the journal
+    private bool journalSubtitleSuppressed;
+
+    // stores the most recent subtitle so it can be restored when appropriate
+    private string currentSubtitle;
+
     public TutorialStep CurrentStep => currentStep;
     public bool TutorialIsActive => tutorialIsActive;
 
@@ -130,50 +139,79 @@ public class OpeningTutorialManager : MonoBehaviour
 
     public void NotifyJournalOpened()
     {
-        if (!tutorialIsActive ||
-            currentStep != TutorialStep.ViewJournal)
+        if (tutorialIsActive &&
+            currentStep == TutorialStep.ViewJournal)
         {
-            return;
+            currentStep = TutorialStep.Complete;
+            tutorialIsActive = false;
+
+            UnlockExitDoor();
+
+            ShowSubtitle("press an arrow key to switch documents");
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.openingTutorialCompleted = true;
+            }
         }
 
-        currentStep = TutorialStep.Complete;
-        tutorialIsActive = false;
-
-        UnlockExitDoor();
-
-        ShowSubtitle("Press an arrow key to switch documents");
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.openingTutorialCompleted = true;
-        }
+        // the journal must hide subtitles even if the tutorial just completed
+        SetJournalSubtitleSuppressed(true);
     }
 
     public void NotifyJournalClosed()
     {
+        SetJournalSubtitleSuppressed(false);
+
         if (currentStep == TutorialStep.Complete)
         {
             HideSubtitle();
         }
     }
 
+    public void SetDialogueSubtitleSuppressed(bool suppressed)
+    {
+        dialogueSubtitleSuppressed = suppressed;
+        RefreshSubtitleVisibility();
+    }
+
+    public void SetJournalSubtitleSuppressed(bool suppressed)
+    {
+        journalSubtitleSuppressed = suppressed;
+        RefreshSubtitleVisibility();
+    }
+
     public void ShowSubtitle(string message)
+    {
+        currentSubtitle = message;
+
+        RefreshSubtitleVisibility();
+    }
+
+    public void HideSubtitle()
+    {
+        currentSubtitle = "";
+
+        if (subtitleText != null)
+        {
+            subtitleText.gameObject.SetActive(false);
+        }
+    }
+
+    private void RefreshSubtitleVisibility()
     {
         if (subtitleText == null)
         {
             return;
         }
 
-        subtitleText.text = message;
-        subtitleText.gameObject.SetActive(true);
-    }
+        bool shouldShow =
+            !dialogueSubtitleSuppressed &&
+            !journalSubtitleSuppressed &&
+            !string.IsNullOrWhiteSpace(currentSubtitle);
 
-    public void HideSubtitle()
-    {
-        if (subtitleText != null)
-        {
-            subtitleText.gameObject.SetActive(false);
-        }
+        subtitleText.text = currentSubtitle;
+        subtitleText.gameObject.SetActive(shouldShow);
     }
 
     private void LockExitDoor()

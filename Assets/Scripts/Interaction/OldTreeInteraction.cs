@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class OldTreeInteraction : Interactable
 {
     [Header("ending settings")]
-    [SerializeField] private string requiredNpcId = "lighthouse";
+    [SerializeField] private string requiredNpcId = "lighthouse_keeper";
 
     [Header("testing")]
     // allows me to test the animation & adjust without goinf thru the whole game

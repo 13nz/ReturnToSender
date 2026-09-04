@@ -114,6 +114,11 @@ public class DialogueManager : MonoBehaviour
         if (lines == null || lines.Length == 0)
             return;
 
+        if (OpeningTutorialManager.Instance != null)
+        {
+            OpeningTutorialManager.Instance.SetDialogueSubtitleSuppressed(true);
+        }
+
         currentLines = lines;
         currentLineIndex = 0;
         dialogueActive = true;
@@ -272,6 +277,12 @@ public class DialogueManager : MonoBehaviour
 
         dialogueActive = false;
         dialoguePanel.SetActive(false);
+
+        if (OpeningTutorialManager.Instance != null)
+        {
+            // allows tutorial subtitles to return after dialogue ends
+            OpeningTutorialManager.Instance.SetDialogueSubtitleSuppressed(false);
+        }
 
         if (GameManager.Instance != null &&
             !string.IsNullOrWhiteSpace(currentNPCId))

@@ -707,7 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2392,6 +2392,7 @@ MonoBehaviour:
   rightArrow: {fileID: 1262725149}
   npcList: {fileID: 1198800396}
   journalEntryPrefab: {fileID: 2645948052471513961, guid: 9f9be9555757b4fed9eb11b7e53df2b7, type: 3}
+  notesScrollView: {fileID: 0}
 --- !u!114 &793200349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3962,7 +3963,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 2
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -6128,7 +6129,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3a28f4845cfae44c190bc95cda7098ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0

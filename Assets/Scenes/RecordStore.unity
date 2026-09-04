@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: characterName
-      value: Record Store Employee
+      value: Vinyl Guy
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 1f7ac372b0f7a41b39818c31fe4970f6, type: 3}
       propertyPath: journalInformation
@@ -758,7 +758,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.4706001, y: 7.308322}
+  m_Offset: {x: 2.4706001, y: 7.1329613}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -768,7 +768,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 13.892138, y: 1.8833561}
+  m_Size: {x: 13.892138, y: 2.2340775}
   m_EdgeRadius: 0
 --- !u!61 &1499912087
 BoxCollider2D:

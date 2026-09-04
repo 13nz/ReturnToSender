@@ -27,6 +27,14 @@ public class EndingSequence : MonoBehaviour
     [Header("ending sounds")]
     [SerializeField] private float soundVolume = 1f;
 
+    [Header("ending camera")]
+    [SerializeField] private float cameraMoveUpAmount = 1.5f;
+    [SerializeField] private float cameraMoveDuration = 1f;
+    [SerializeField] private float cameraReturnDuration = 1f;
+
+    private Camera mainCamera;
+    private Vector3 originalCameraPosition;
+
     // audio
     private AudioSource audioSource;
     private AudioClip whooshSound;
@@ -75,6 +83,13 @@ public class EndingSequence : MonoBehaviour
 
         // keeps the letter hidden until the ending begins
         letterRenderer.enabled = false;
+
+        mainCamera = Camera.main;
+
+        if (mainCamera != null)
+        {
+            originalCameraPosition = mainCamera.transform.position;
+        }
     }
 
     public void StartEnding()
@@ -85,9 +100,7 @@ public class EndingSequence : MonoBehaviour
 
         endingStarted = true;
 
-        // prevents the player from moving during the ending
-        PlayerMovement playerMovement =
-            FindFirstObjectByType<PlayerMovement>();
+        PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
 
         if (playerMovement != null)
         {
@@ -99,6 +112,18 @@ public class EndingSequence : MonoBehaviour
 
     private IEnumerator PlayEnding()
     {
+
+        if (mainCamera != null)
+        {
+            Vector3 cameraTargetPosition =
+                originalCameraPosition +
+                Vector3.up * cameraMoveUpAmount;
+
+            yield return MoveCameraTo(
+                cameraTargetPosition,
+                cameraMoveDuration
+            );
+        }
         // waits before the creature appears
         yield return new WaitForSeconds(chipalopeAppearDelay);
 
@@ -180,6 +205,14 @@ public class EndingSequence : MonoBehaviour
         // disables the objects after the ending finishes
         chipalope.gameObject.SetActive(false);
         letter.gameObject.SetActive(false);
+
+        if (mainCamera != null)
+        {
+            yield return MoveCameraTo(
+                originalCameraPosition,
+                cameraReturnDuration
+            );
+        }
 
         Debug.Log("ending complete.");
     }
@@ -290,5 +323,64 @@ public class EndingSequence : MonoBehaviour
 
         chipalope.position = chipalopeDestination;
         letter.position = letterDestination;
+    }
+
+    private IEnumerator MoveCameraUp()
+    {
+        Camera mainCamera = Camera.main;
+
+        if (mainCamera == null)
+            yield break;
+
+        Vector3 startingPosition = mainCamera.transform.position;
+        Vector3 targetPosition = startingPosition +
+                                Vector3.up * cameraMoveUpAmount;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < cameraMoveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float progress = elapsedTime / cameraMoveDuration;
+            progress = Mathf.SmoothStep(0f, 1f, progress);
+
+            mainCamera.transform.position = Vector3.Lerp(
+                startingPosition,
+                targetPosition,
+                progress
+            );
+
+            yield return null;
+        }
+
+        mainCamera.transform.position = targetPosition;
+    }
+
+    private IEnumerator MoveCameraTo(Vector3 destination, float duration)
+    {
+        if (mainCamera == null)
+            yield break;
+
+        Vector3 startingPosition = mainCamera.transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float progress = elapsedTime / duration;
+            progress = Mathf.SmoothStep(0f, 1f, progress);
+
+            mainCamera.transform.position = Vector3.Lerp(
+                startingPosition,
+                destination,
+                progress
+            );
+
+            yield return null;
+        }
+
+        mainCamera.transform.position = destination;
     }
 }
