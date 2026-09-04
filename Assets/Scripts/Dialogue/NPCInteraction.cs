@@ -13,6 +13,9 @@ public class NPCInteraction : Interactable
     [TextArea(2, 5)]
     [SerializeField] private string journalInformation;
 
+    [Header("opening tutorial")]
+    [SerializeField] private bool isPostmaster;
+
     private DialogueManager dialogueManager;
 
     private void Awake()
@@ -47,6 +50,10 @@ public class NPCInteraction : Interactable
         }
 
         // starts this npcs conversation using the dialogue lines assigned in the inspector
-        dialogueManager.StartDialogue(characterName, dialogueLines);
+        dialogueManager.StartDialogue(
+            characterName,
+            dialogueLines,
+            isPostmaster
+        );
     }
 }

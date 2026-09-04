@@ -6,43 +6,42 @@ public class ObjectiveManager : MonoBehaviour
     [Header("ui")]
     [SerializeField] private TMP_Text objectiveText;
 
-    [Header("checkpoint objectives")]
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint0 = "Investigate the letter.";
+    [Header("objectives")]
+    [TextArea]
+    [SerializeField] private string checkpoint0 = "talk to the postmaster";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint1 = "Ask the bookseller about the seal.";
+    [TextArea]
+    [SerializeField] private string checkpoint1 = "visit the bookseller";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint2 = "Find out where the record came from.";
+    [TextArea]
+    [SerializeField] private string checkpoint2 = "visit the record store";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint3 = "Ask the baker about the cupcakes.";
+    [TextArea]
+    [SerializeField] private string checkpoint3 = "visit the bakery";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint4 = "Find out who attended the café event.";
+    [TextArea]
+    [SerializeField] private string checkpoint4 = "visit the café";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint5 = "Ask the apothecary about the oils.";
+    [TextArea]
+    [SerializeField] private string checkpoint5 = "visit the apothecary";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint6 = "Ask the florist about the flowers.";
+    [TextArea]
+    [SerializeField] private string checkpoint6 = "visit the florist";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint7 = "Ask the bartender about the wine.";
+    [TextArea]
+    [SerializeField] private string checkpoint7 = "visit the tavern";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint8 = "Ask the motel receptionist about the tourist.";
+    [TextArea]
+    [SerializeField] private string checkpoint8 = "visit the motel";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint9 = "Ask the lighthouse keeper about the observatory.";
+    [TextArea]
+    [SerializeField] private string checkpoint9 = "visit the lighthouse";
 
-    [TextArea(2, 4)]
-    [SerializeField] private string checkpoint10 = "Follow the path to the observatory.";
+    [TextArea]
+    [SerializeField] private string checkpoint10 = "visit the observatory";
 
     private void OnEnable()
     {
-        // subscribes to checkpoint changes when the objective canvas is enabled
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnCheckpointChanged += UpdateObjective;
@@ -51,20 +50,14 @@ public class ObjectiveManager : MonoBehaviour
 
     private void Start()
     {
-        // displays the correct objective when the canvas first starts
         if (GameManager.Instance != null)
         {
             UpdateObjective(GameManager.Instance.CurrentCheckpoint);
-        }
-        else
-        {
-            Debug.LogWarning("ObjectiveManager could not find the GameManager.");
         }
     }
 
     private void OnDisable()
     {
-        // unsubscribes to prevent missing-reference errors and duplicate listeners
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnCheckpointChanged -= UpdateObjective;
@@ -75,14 +68,14 @@ public class ObjectiveManager : MonoBehaviour
     {
         if (objectiveText == null)
         {
-            Debug.LogWarning("ObjectiveManager is missing its ObjectiveText reference.");
+            Debug.LogWarning("ObjectiveText has not been assigned.");
             return;
         }
 
-        objectiveText.text = GetObjectiveForCheckpoint(checkpoint);
+        objectiveText.text = GetObjectiveText(checkpoint);
     }
 
-    private string GetObjectiveForCheckpoint(int checkpoint)
+    private string GetObjectiveText(int checkpoint)
     {
         switch (checkpoint)
         {
@@ -120,7 +113,7 @@ public class ObjectiveManager : MonoBehaviour
                 return checkpoint10;
 
             default:
-                return string.Empty;
+                return "investigation complete";
         }
     }
 }

@@ -108,6 +108,18 @@ public class JournalUI : MonoBehaviour
         // stores the current open state
         journalOpen = open;
 
+        if (OpeningTutorialManager.Instance != null)
+        {
+            if (journalOpen)
+            {
+                OpeningTutorialManager.Instance.NotifyJournalOpened();
+            }
+            else
+            {
+                OpeningTutorialManager.Instance.NotifyJournalClosed();
+            }
+        }
+
         if (!journalOpen)
         {
             // hides the journal and envelope when the interface is closed
@@ -120,6 +132,7 @@ public class JournalUI : MonoBehaviour
 
             return;
         }
+        
 
         // always start on the journal when opening the documents interface
         currentPage = 0;

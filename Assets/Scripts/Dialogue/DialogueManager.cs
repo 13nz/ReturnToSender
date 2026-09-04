@@ -21,6 +21,9 @@ public class DialogueManager : MonoBehaviour
     // returns whether a conversation is currently active so other systems can pause their interactions
     public bool IsDialogueActive => dialogueActive;
 
+    // check if first npc for tutporial
+    private bool currentConversationIsPostmaster;
+
     private void Awake()
     {
         // prevents duplicate dialogue managers from being created when scenes are loaded
@@ -69,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(string characterName, string[] lines)
+    public void StartDialogue(string characterName, string[] lines, bool isPostmaster = false)
     {
         // prevents an empty conversation from opening the dialogue interface
         if (lines == null || lines.Length == 0)
@@ -79,6 +82,9 @@ public class DialogueManager : MonoBehaviour
         currentLines = lines;
         currentLineIndex = 0;
         dialogueActive = true;
+
+        // check if first npc
+        currentConversationIsPostmaster = isPostmaster;
 
         // prevents the interaction key from immediately advancing the first line
         waitingForInputRelease = true;
@@ -114,5 +120,15 @@ public class DialogueManager : MonoBehaviour
         // marks the conversation as inactive and hides the dialogue interface
         dialogueActive = false;
         dialoguePanel.SetActive(false);
+
+        // advances the opening tutorial only after the postmaster conversation ends
+        if (currentConversationIsPostmaster &&
+            OpeningTutorialManager.Instance != null)
+        {
+            OpeningTutorialManager.Instance.CompletePostmasterConversation();
+        }
+
+        // resets the conversation type
+        currentConversationIsPostmaster = false;
     }
 }

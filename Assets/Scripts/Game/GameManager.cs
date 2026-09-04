@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
     // notifies ui and other systems when the current checkpoint changes
     public event Action<int> OnCheckpointChanged;
 
+    // tutorial completed
+    [Header("opening tutorial")]
+    public bool openingTutorialCompleted;
+
     private void Awake()
     {
         // prevents duplicate game managers when scenes are loaded

@@ -26,11 +26,24 @@ public class CameraFollow : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        FindPlayer();
+    }
+
     private void LateUpdate()
     {
-        // stops the camera from trying to follow if no target has been assigned
+        // finds the player if the target has not been assigned yet
         if (target == null)
+        {
+            FindPlayer();
+        }
+
+        // stops the camera from trying to follow if no target has been found
+        if (target == null)
+        {
             return;
+        }
 
         // keeps the camera's existing z position so it remains in front of the 2d scene
         Vector3 targetPosition = new Vector3(
@@ -45,5 +58,15 @@ public class CameraFollow : MonoBehaviour
             targetPosition,
             smoothSpeed * Time.deltaTime
         );
+    }
+
+    private void FindPlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            target = playerObject.transform;
+        }
     }
 }
