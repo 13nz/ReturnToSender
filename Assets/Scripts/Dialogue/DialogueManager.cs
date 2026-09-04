@@ -10,6 +10,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text characterNameText;
     [SerializeField] private TMP_Text dialogueText;
 
+    private string currentNPCId;
+    private string currentNPCName;
+    private string currentNPCInformation;
+
     [Header("typing effect")]
     [SerializeField] private float charactersPerSecond = 45f;
     [SerializeField] private AudioClip typingSound;
@@ -101,42 +105,29 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(
         string characterName,
         string[] lines,
-        bool isPostmaster = false
+        bool isPostmaster = false,
+        string npcId = "",
+        string npcName = "",
+        string npcInformation = ""
     )
     {
-        // prevents an empty conversation from opening the dialogue interface
         if (lines == null || lines.Length == 0)
-        {
             return;
-        }
 
-        // stops any previous typing coroutine before starting a new conversation
-        StopTyping();
-
-        // stores the conversation and starts at the first line
         currentLines = lines;
         currentLineIndex = 0;
         dialogueActive = true;
-
-        // stores whether this is the postmaster conversation
         currentConversationIsPostmaster = isPostmaster;
 
-        // prevents the interaction key from immediately advancing the first line
+        currentNPCId = npcId;
+        currentNPCName = npcName;
+        currentNPCInformation = npcInformation;
+
         waitingForInputRelease = true;
 
-        // displays the speaker's name
-        if (characterNameText != null)
-        {
-            characterNameText.text = characterName;
-        }
+        characterNameText.text = characterName;
+        dialoguePanel.SetActive(true);
 
-        // opens the dialogue interface
-        if (dialoguePanel != null)
-        {
-            dialoguePanel.SetActive(true);
-        }
-
-        // starts typing the first line
         ShowCurrentLine();
     }
 
@@ -277,26 +268,36 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        // stops typing and any associated sound
         StopTyping();
 
-        // marks the conversation as inactive
         dialogueActive = false;
+        dialoguePanel.SetActive(false);
 
-        // hides the dialogue interface
-        if (dialoguePanel != null)
+        if (GameManager.Instance != null &&
+            !string.IsNullOrWhiteSpace(currentNPCId))
         {
-            dialoguePanel.SetActive(false);
+            bool firstConversation = GameManager.Instance.RecordNPCConversation(
+                currentNPCId,
+                currentNPCName,
+                currentNPCInformation
+            );
+
+            if (firstConversation)
+            {
+                GameManager.Instance.CompleteNPCCheckpoint(currentNPCId);
+            }
         }
 
-        // advances the opening tutorial only after the postmaster conversation ends
         if (currentConversationIsPostmaster &&
             OpeningTutorialManager.Instance != null)
         {
             OpeningTutorialManager.Instance.CompletePostmasterConversation();
         }
 
-        // resets the conversation type
         currentConversationIsPostmaster = false;
+
+        currentNPCId = "";
+        currentNPCName = "";
+        currentNPCInformation = "";
     }
 }
