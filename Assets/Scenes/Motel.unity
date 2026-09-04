@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 8028808172065697213, guid: d91c16f84188947d5922384d34590635, type: 3}
       propertyPath: 'dialogueLines.Array.data[4]'
       value: Legend has it those creatures can find anyone, anywhere. And sometimes
-        leave presents.
+        they even leave presents. Supposedly. Who believes that anyway.
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: d91c16f84188947d5922384d34590635, type: 3}
       propertyPath: 'dialogueLines.Array.data[5]'

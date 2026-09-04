@@ -308,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 237264b462e354fe8a45dc5fde726c0e, type: 3}
       propertyPath: 'dialogueLines.Array.data[4]'
-      value: "The caf\xE9 might remember who was there."
+      value: The barista might remember who was there.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
