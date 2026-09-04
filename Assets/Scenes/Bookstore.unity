@@ -294,8 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: journalInformation
-      value: The book seller said I should ask the record store employee about the
-        Correspondence Society's record
+      value: She said I should ask at the  record store about the Society's record
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 6ab6d62ff338a49dda84604628a0e4fa, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'

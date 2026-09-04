@@ -13,7 +13,6 @@ public class EndingSequence : MonoBehaviour
     [SerializeField] private float letterHeightAbovePlayer = 0.45f;
     [SerializeField] private float letterTravelDuration = 1.2f;
     [SerializeField] private float downwardDistance = 0.3f;
-    [Header("letter placement")]
     [SerializeField] private float letterHoldHeightOffset = -0.2f;
 
     [Header("ending timing")]
@@ -33,7 +32,10 @@ public class EndingSequence : MonoBehaviour
     [SerializeField] private float cameraReturnDuration = 1f;
 
     private Camera mainCamera;
-    private Vector3 originalCameraPosition;
+
+    // this is captured when the ending actually begins
+    private Vector3 endingStartCameraPosition;
+    private MonoBehaviour cameraFollow;
 
     // audio
     private AudioSource audioSource;
@@ -58,13 +60,10 @@ public class EndingSequence : MonoBehaviour
         }
 
         // loads the encounter sounds from Resources
-        whooshSound =
-            Resources.Load<AudioClip>("Audio/Sounds/whoosh");
+        whooshSound = Resources.Load<AudioClip>("Audio/Sounds/whoosh");
+        chipalopeSound = Resources.Load<AudioClip>("Audio/Sounds/chipalope_sound");
 
-        chipalopeSound =
-            Resources.Load<AudioClip>("Audio/Sounds/chipalope_sound");
-
-        // audiosource configs
+        // AudioSource settings
         audioSource.playOnAwake = false;
         audioSource.loop = false;
         audioSource.spatialBlend = 0f;
@@ -72,8 +71,8 @@ public class EndingSequence : MonoBehaviour
         audioSource.pitch = 1f;
         audioSource.panStereo = 0f;
         audioSource.reverbZoneMix = 1f;
-        
-        // stores the original cipalop position and colors
+
+        // stores the original Chipalope position and colors
         chipalopeStartPosition = chipalope.position;
         chipalopeStartColor = chipalopeRenderer.color;
         letterStartColor = letterRenderer.color;
@@ -84,23 +83,55 @@ public class EndingSequence : MonoBehaviour
         // keeps the letter hidden until the ending begins
         letterRenderer.enabled = false;
 
+        // finds the active camera
         mainCamera = Camera.main;
-
-        if (mainCamera != null)
-        {
-            originalCameraPosition = mainCamera.transform.position;
-        }
     }
 
     public void StartEnding()
     {
         // prevents the ending from starting more than once
         if (endingStarted)
+        {
             return;
+        }
 
         endingStarted = true;
 
-        PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
+        // finds the camera-follow script on the active camera
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        if (mainCamera != null)
+        {
+            endingStartCameraPosition = mainCamera.transform.position;
+
+            // replace "CameraFollow" with the actual name of your camera-follow script
+            cameraFollow = mainCamera.GetComponent<CameraFollow>();
+
+            if (cameraFollow != null)
+            {
+                cameraFollow.enabled = false;
+            }
+        }
+
+        // // refreshes the camera reference in case the camera changed
+        // if (mainCamera == null)
+        // {
+        //     mainCamera = Camera.main;
+        // }
+
+        // // captures the camera's actual position at the moment
+        // // the ending starts, rather than its scene-spawn position
+        // if (mainCamera != null)
+        // {
+        //     endingStartCameraPosition = mainCamera.transform.position;
+        // }
+
+        // disables player movement during the ending
+        PlayerMovement playerMovement =
+            FindFirstObjectByType<PlayerMovement>();
 
         if (playerMovement != null)
         {
@@ -112,11 +143,11 @@ public class EndingSequence : MonoBehaviour
 
     private IEnumerator PlayEnding()
     {
-
+        // moves the camera upward from its actual starting position
         if (mainCamera != null)
         {
             Vector3 cameraTargetPosition =
-                originalCameraPosition +
+                endingStartCameraPosition +
                 Vector3.up * cameraMoveUpAmount;
 
             yield return MoveCameraTo(
@@ -124,6 +155,7 @@ public class EndingSequence : MonoBehaviour
                 cameraMoveDuration
             );
         }
+
         // waits before the creature appears
         yield return new WaitForSeconds(chipalopeAppearDelay);
 
@@ -134,13 +166,13 @@ public class EndingSequence : MonoBehaviour
         invisibleChipalopeColor.a = 0f;
         chipalopeRenderer.color = invisibleChipalopeColor;
 
-        // plays the whoosh as the it begins appearing
+        // plays the whoosh as the Chipalope begins appearing
         if (whooshSound != null)
         {
             audioSource.PlayOneShot(whooshSound);
         }
 
-        // fades the it into view.
+        // fades the Chipalope into view
         yield return FadeChipalopeIn();
 
         // plays the sound immediately after it finishes appearing
@@ -199,19 +231,27 @@ public class EndingSequence : MonoBehaviour
         // hides the letter after the downward movement finishes
         letterRenderer.enabled = false;
 
-        // fade out
+        // fades the Chipalope out
         yield return FadeChipalopeOut();
 
         // disables the objects after the ending finishes
         chipalope.gameObject.SetActive(false);
         letter.gameObject.SetActive(false);
 
+        // returns the camera to the position it had
+        // when the ending originally started
         if (mainCamera != null)
         {
             yield return MoveCameraTo(
-                originalCameraPosition,
+                endingStartCameraPosition,
                 cameraReturnDuration
             );
+        }
+
+        // allows the camera to follow the player again after the ending
+        if (cameraFollow != null)
+        {
+            cameraFollow.enabled = true;
         }
 
         Debug.Log("ending complete.");
@@ -248,7 +288,8 @@ public class EndingSequence : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            float progress = elapsedTime / fadeDuration;
+            float progress =
+                elapsedTime / fadeDuration;
 
             chipalopeColor.a = Mathf.Lerp(1f, 0f, progress);
             chipalopeRenderer.color = chipalopeColor;
@@ -273,7 +314,9 @@ public class EndingSequence : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            float progress = elapsedTime / duration;
+            float progress =
+                elapsedTime / duration;
+
             progress = Mathf.SmoothStep(0f, 1f, progress);
 
             target.position = Vector3.Lerp(
@@ -303,7 +346,9 @@ public class EndingSequence : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            float progress = elapsedTime / duration;
+            float progress =
+                elapsedTime / duration;
+
             progress = Mathf.SmoothStep(0f, 1f, progress);
 
             chipalope.position = Vector3.Lerp(
@@ -325,42 +370,15 @@ public class EndingSequence : MonoBehaviour
         letter.position = letterDestination;
     }
 
-    private IEnumerator MoveCameraUp()
+    private IEnumerator MoveCameraTo(
+        Vector3 destination,
+        float duration
+    )
     {
-        Camera mainCamera = Camera.main;
-
         if (mainCamera == null)
-            yield break;
-
-        Vector3 startingPosition = mainCamera.transform.position;
-        Vector3 targetPosition = startingPosition +
-                                Vector3.up * cameraMoveUpAmount;
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < cameraMoveDuration)
         {
-            elapsedTime += Time.deltaTime;
-
-            float progress = elapsedTime / cameraMoveDuration;
-            progress = Mathf.SmoothStep(0f, 1f, progress);
-
-            mainCamera.transform.position = Vector3.Lerp(
-                startingPosition,
-                targetPosition,
-                progress
-            );
-
-            yield return null;
-        }
-
-        mainCamera.transform.position = targetPosition;
-    }
-
-    private IEnumerator MoveCameraTo(Vector3 destination, float duration)
-    {
-        if (mainCamera == null)
             yield break;
+        }
 
         Vector3 startingPosition = mainCamera.transform.position;
         float elapsedTime = 0f;
@@ -369,7 +387,9 @@ public class EndingSequence : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            float progress = elapsedTime / duration;
+            float progress =
+                elapsedTime / duration;
+
             progress = Mathf.SmoothStep(0f, 1f, progress);
 
             mainCamera.transform.position = Vector3.Lerp(
