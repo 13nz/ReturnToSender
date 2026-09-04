@@ -40,24 +40,25 @@ public class ObjectiveManager : MonoBehaviour
     [TextArea]
     [SerializeField] private string checkpoint10 = "visit the observatory";
 
-    private void OnEnable()
-    {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.OnCheckpointChanged += UpdateObjective;
-        }
-    }
-
     private void Start()
     {
-        if (GameManager.Instance != null)
+        // waits until the game manager has initialized
+        if (GameManager.Instance == null)
         {
-            UpdateObjective(GameManager.Instance.CurrentCheckpoint);
+            Debug.LogWarning("no game manager was found for the objective manager.");
+            return;
         }
+
+        // subscribes after the game manager has initialized
+        GameManager.Instance.OnCheckpointChanged += UpdateObjective;
+
+        // displays the correct objective immediately when the scene loads
+        UpdateObjective(GameManager.Instance.CurrentCheckpoint);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        // removes the event subscription when this object is destroyed
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnCheckpointChanged -= UpdateObjective;
@@ -68,11 +69,13 @@ public class ObjectiveManager : MonoBehaviour
     {
         if (objectiveText == null)
         {
-            Debug.LogWarning("ObjectiveText has not been assigned.");
+            //Debug.LogWarning("objective text has not been assigned.");
             return;
         }
 
         objectiveText.text = GetObjectiveText(checkpoint);
+
+        //Debug.Log("objective updated to checkpoint: " + checkpoint);
     }
 
     private string GetObjectiveText(int checkpoint)
