@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,6 +43,9 @@ public class GameManager : MonoBehaviour
 
     // stores which checkpoint the player is currently expected to complete
     public int CurrentCheckpoint { get; private set; }
+
+    // notifies ui and other systems when the current checkpoint changes
+    public event Action<int> OnCheckpointChanged;
 
     private void Awake()
     {
@@ -144,6 +148,9 @@ public class GameManager : MonoBehaviour
 
         // advances to the next checkpoint
         CurrentCheckpoint++;
+
+        // notifies objective manager that the checkpoint has changed
+        OnCheckpointChanged?.Invoke(CurrentCheckpoint);
 
     }
 
