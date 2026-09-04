@@ -40,23 +40,23 @@ public class EndingSequence : MonoBehaviour
 
     private void Awake()
     {
-        // gets the existing AudioSource if one is already attached.
+        // gets the existing AudioSource if one is already attached
         audioSource = GetComponent<AudioSource>();
 
-        // adds an AudioSource if one is missing.
+        // adds an AudioSource if one is missing
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // loads the Chipalope encounter sounds from Resources.
+        // loads the encounter sounds from Resources
         whooshSound =
             Resources.Load<AudioClip>("Audio/Sounds/whoosh");
 
         chipalopeSound =
             Resources.Load<AudioClip>("Audio/Sounds/chipalope_sound");
 
-        // configures the AudioSource.
+        // audiosource configs
         audioSource.playOnAwake = false;
         audioSource.loop = false;
         audioSource.spatialBlend = 0f;
@@ -65,27 +65,27 @@ public class EndingSequence : MonoBehaviour
         audioSource.panStereo = 0f;
         audioSource.reverbZoneMix = 1f;
         
-        // stores the original Chipalope position and colors.
+        // stores the original cipalop position and colors
         chipalopeStartPosition = chipalope.position;
         chipalopeStartColor = chipalopeRenderer.color;
         letterStartColor = letterRenderer.color;
 
-        // keeps the Chipalope hidden until the ending begins.
+        // keeps the Chipalope hidden until the ending begins
         chipalopeRenderer.enabled = false;
 
-        // keeps the letter hidden until the ending begins.
+        // keeps the letter hidden until the ending begins
         letterRenderer.enabled = false;
     }
 
     public void StartEnding()
     {
-        // prevents the ending from starting more than once.
+        // prevents the ending from starting more than once
         if (endingStarted)
             return;
 
         endingStarted = true;
 
-        // prevents the player from moving during the ending.
+        // prevents the player from moving during the ending
         PlayerMovement playerMovement =
             FindFirstObjectByType<PlayerMovement>();
 
@@ -99,35 +99,35 @@ public class EndingSequence : MonoBehaviour
 
     private IEnumerator PlayEnding()
     {
-        // waits before the Chipalope appears.
+        // waits before the creature appears
         yield return new WaitForSeconds(chipalopeAppearDelay);
 
-        // enables the Chipalope renderer while keeping it fully transparent.
+        // enables the Chipalope renderer while keeping it fully transparent
         chipalopeRenderer.enabled = true;
 
         Color invisibleChipalopeColor = chipalopeStartColor;
         invisibleChipalopeColor.a = 0f;
         chipalopeRenderer.color = invisibleChipalopeColor;
 
-        // plays the whoosh as the Chipalope begins appearing.
+        // plays the whoosh as the it begins appearing
         if (whooshSound != null)
         {
             audioSource.PlayOneShot(whooshSound);
         }
 
-        // fades the Chipalope into view.
+        // fades the it into view.
         yield return FadeChipalopeIn();
 
-        // plays the Chipalope sound immediately after it finishes appearing.
+        // plays the sound immediately after it finishes appearing
         if (chipalopeSound != null)
         {
             audioSource.PlayOneShot(chipalopeSound);
         }
 
-        // waits briefly before the letter appears.
+        // waits briefly before the letter appears
         yield return new WaitForSeconds(letterAppearDelay);
 
-        // finds the player and places the letter above them.
+        // finds the player and places the letter above them
         GameObject playerObject =
             GameObject.FindGameObjectWithTag("Player");
 
@@ -138,11 +138,11 @@ public class EndingSequence : MonoBehaviour
                 Vector3.up * letterHeightAbovePlayer;
         }
 
-        // makes the letter visible.
+        // makes the letter visible
         letterRenderer.enabled = true;
         letterRenderer.color = letterStartColor;
 
-        // places the letter slightly below the Chipalope's transform position.
+        // places the letter slightly below its transform position
         Vector3 letterTargetPosition =
             chipalope.position +
             Vector3.up * letterHoldHeightOffset;
@@ -153,10 +153,10 @@ public class EndingSequence : MonoBehaviour
             letterTravelDuration
         );
 
-        // pauses briefly to show the handoff.
+        // pauses briefly to show the handoff
         yield return new WaitForSeconds(letterHoldDelay);
 
-        // moves both the Chipalope and letter slightly downward together.
+        // moves both the Chipalope and letter slightly downward together
         Vector3 chipalopeTargetPosition =
             chipalope.position +
             Vector3.down * downwardDistance;
@@ -171,13 +171,13 @@ public class EndingSequence : MonoBehaviour
             downwardDuration
         );
 
-        // hides the letter after the downward movement finishes.
+        // hides the letter after the downward movement finishes
         letterRenderer.enabled = false;
 
-        // fades the Chipalope out.
+        // fade out
         yield return FadeChipalopeOut();
 
-        // disables the objects after the ending finishes.
+        // disables the objects after the ending finishes
         chipalope.gameObject.SetActive(false);
         letter.gameObject.SetActive(false);
 

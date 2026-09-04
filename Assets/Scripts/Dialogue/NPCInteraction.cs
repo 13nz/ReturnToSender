@@ -17,21 +17,20 @@ public class NPCInteraction : Interactable
 
     private void Awake()
     {
-        // finds the shared dialogue manager so every npc can use the same dialogue system.
+        // finds the shared dialogue manager so every npc can use the same dialogue system
         dialogueManager = FindFirstObjectByType<DialogueManager>();
     }
 
     public override void Interact()
     {
-        // prevents the interaction from failing if the dialogue manager is unavailable.
+        // prevents the interaction from failing if the dialogue manager is unavailable
         if (dialogueManager == null)
         {
             Debug.LogWarning("no dialogue manager was found in the scene.");
             return;
         }
 
-        // records the conversation and checks whether this is the first time
-        // the player has spoken to this npc.
+        // records the conversation and checks whether this is the first time player speaks to npc
         if (GameManager.Instance != null)
         {
             bool firstConversation = GameManager.Instance.RecordNPCConversation(
@@ -40,15 +39,14 @@ public class NPCInteraction : Interactable
                 journalInformation
             );
 
-            // only advances the story checkpoint the first time this npc
-            // is spoken to.
+            // only advances the story checkpoint the first time this npc is spoken to
             if (firstConversation)
             {
                 GameManager.Instance.CompleteNPCCheckpoint(npcId);
             }
         }
 
-        // starts this npc's conversation using the dialogue lines assigned in the inspector.
+        // starts this npcs conversation using the dialogue lines assigned in the inspector
         dialogueManager.StartDialogue(characterName, dialogueLines);
     }
 }

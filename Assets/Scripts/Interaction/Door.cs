@@ -23,10 +23,10 @@ public class Door : Interactable
 
     private void Awake()
     {
-        // gets the existing AudioSource if one is already attached.
+        // gets the existing AudioSource if one is already attached
         audioSource = GetComponent<AudioSource>();
 
-        // adds an AudioSource if this door does not already have one.
+        // adds an AudioSource if this door does not already have one
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -49,7 +49,7 @@ public class Door : Interactable
         audioSource.maxDistance = maxDistance;
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
 
-        // warns if either sound could not be loaded.
+        // warns if either sound could not be loaded
         if (openSound == null)
         {
             Debug.LogWarning(
@@ -99,7 +99,7 @@ public class Door : Interactable
 
     public void PlayOpenSound()
     {
-        // plays when the player enters a scene through this door.
+        // plays when the player enters a scene through this door
         if (openSound != null)
         {
             audioSource.PlayOneShot(openSound);
@@ -108,7 +108,7 @@ public class Door : Interactable
 
     public void PlayCloseSound()
     {
-        // plays when the player exits a scene through this door.
+        // plays when the player exits a scene through this door
         if (closeSound != null)
         {
             audioSource.PlayOneShot(closeSound);

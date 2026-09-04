@@ -13,20 +13,20 @@ public class Building : MonoBehaviour
 
     private void Start()
     {
-        // updates the building state when the main scene loads.
+        // updates the building state when the main scene loads
         UpdateBuildingState();
     }
 
     public void UpdateBuildingState()
     {
-        // prevents the building from failing if the game manager is unavailable.
+        // prevents the building from failing if the game manager is unavailable
         if (GameManager.Instance == null)
             return;
 
-        // checks whether this npc has already been completed.
+        // checks whether this npc has already been completed
         bool alreadyCompleted = GameManager.Instance.HasSpokenToNPC(npcId);
 
-        // checks whether this building belongs to the current checkpoint.
+        // checks whether this building belongs to the current checkpoint
         NPCCheckpoint currentCheckpoint =
             GameManager.Instance.GetCurrentNPCCheckpoint();
 
@@ -35,16 +35,16 @@ public class Building : MonoBehaviour
             currentCheckpoint.npcId == npcId;
 
         // the building is available if it has already been completed
-        // or if it is the current building in the progression.
+        // or if it is the current building in the progression
         bool canEnter = alreadyCompleted || isCurrentBuilding;
 
-        // shows the closed sign only while the building is unavailable.
+        // shows the closed sign only while the building is unavailable
         if (closedSign != null)
         {
             closedSign.SetActive(!canEnter);
         }
 
-        // enables the door only while the building is available.
+        // enables the door only while the building is available
         if (door != null)
         {
             door.SetInteractable(canEnter);

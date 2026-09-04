@@ -32,16 +32,16 @@ public class JournalUI : MonoBehaviour
     private void Awake()
     {
         // dound effect
-        // gets the existing AudioSource if one is already attached.
+        // gets the existing AudioSource if one is already attached
         audioSource = GetComponent<AudioSource>();
 
-        // adds an AudioSource if one is missing.
+        // adds an AudioSource if one is missing
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // loads the paper rustle sound from Resources.
+        // loads the paper rustle sound from Resources
         paperRustleSound =
             Resources.Load<AudioClip>("Audio/Sounds/paper_rustle");
 
@@ -53,13 +53,13 @@ public class JournalUI : MonoBehaviour
         audioSource.pitch = 1f;
         audioSource.panStereo = 0f;
         audioSource.reverbZoneMix = 1f;
-        // keeps the journal canvas and its children alive when changing scenes.
+        // keeps the journal canvas and its children alive when changing scenes
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // starts with the documents interface closed.
+        // starts with the documents interface closed
         SetJournalOpen(false);
     }
 
@@ -68,24 +68,24 @@ public class JournalUI : MonoBehaviour
         if (Keyboard.current == null)
             return;
 
-        // checks for Tab so the player can open and close the documents interface.
+        // checks for Tab so the player can open and close the documents interface
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
             ToggleJournal();
             return;
         }
 
-        // ignores page controls while the documents interface is closed.
+        // ignores page controls while the documents interface is closed
         if (!journalOpen)
             return;
 
-        // switches to the previous page with the left arrow key.
+        // switches to the previous page with the left arrow key
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
             PreviousPage();
         }
 
-        // switches to the next page with the right arrow key.
+        // switches to the next page with the right arrow key
         if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
         {
             NextPage();
@@ -94,60 +94,60 @@ public class JournalUI : MonoBehaviour
 
     private void ToggleJournal()
     {
-        // plays the paper rustle when the notes open.
+        // plays the paper rustle when the notes open
         if (paperRustleSound != null)
         {
             audioSource.PlayOneShot(paperRustleSound);
         }
-        // switches the documents interface between its open and closed states.
+        // switches the documents interface between its open and closed states
         SetJournalOpen(!journalOpen);
     }
 
     private void SetJournalOpen(bool open)
     {
-        // stores the current open state.
+        // stores the current open state
         journalOpen = open;
 
         if (!journalOpen)
         {
-            // hides the journal and envelope when the interface is closed.
+            // hides the journal and envelope when the interface is closed
             journalPanel.SetActive(false);
             envelopePanel.SetActive(false);
 
-            // hides the navigation arrows while the interface is closed.
+            // hides the navigation arrows while the interface is closed
             leftArrow.SetActive(false);
             rightArrow.SetActive(false);
 
             return;
         }
 
-        // always start on the journal when opening the documents interface.
+        // always start on the journal when opening the documents interface
         currentPage = 0;
 
-        // refreshes the journal so it contains the latest npc information.
+        // refreshes the journal so it contains the latest npc information
         RefreshJournal();
 
-        // displays the current page.
+        // displays the current page
         ShowCurrentPage();
     }
 
     public void PreviousPage()
     {
         
-        // ignores button presses while the documents interface is closed.
+        // ignores button presses while the documents interface is closed
         if (!journalOpen)
             return;
 
-        // plays the paper rustle when the notes open.
+        // plays the paper rustle when the notes open
         if (paperRustleSound != null)
         {
             audioSource.PlayOneShot(paperRustleSound);
         }
 
-        // moves to the previous page.
+        // moves to the previous page
         currentPage--;
 
-        // wraps from the journal back to the envelope.
+        // wraps from the journal back to the envelope
         if (currentPage < 0)
         {
             currentPage = 1;
@@ -158,20 +158,20 @@ public class JournalUI : MonoBehaviour
 
     public void NextPage()
     {
-        // ignores button presses while the documents interface is closed.
+        // ignores button presses while the documents interface is closed
         if (!journalOpen)
             return;
 
-        // plays the paper rustle when the notes open.
+        // plays the paper rustle when the notes open
         if (paperRustleSound != null)
         {
             audioSource.PlayOneShot(paperRustleSound);
         }
 
-        // moves to the next page.
+        // moves to the next page
         currentPage++;
 
-        // wraps from the envelope back to the journal.
+        // wraps from the envelope back to the journal
         if (currentPage > 1)
         {
             currentPage = 0;
@@ -182,34 +182,34 @@ public class JournalUI : MonoBehaviour
 
     private void ShowCurrentPage()
     {
-        // shows the journal when the current page is zero.
+        // shows the journal when the current page is zero
         journalPanel.SetActive(currentPage == 0);
 
-        // shows the envelope when the current page is one.
+        // shows the envelope when the current page is one
         envelopePanel.SetActive(currentPage == 1);
 
-        // keeps the navigation arrows visible while the documents interface is open.
+        // keeps the navigation arrows visible while the documents interface is open
         leftArrow.SetActive(true);
         rightArrow.SetActive(true);
     }
 
     private void RefreshJournal()
     {
-        // prevents the journal from trying to read game data before the game manager exists.
+        // prevents the journal from trying to read game data before the game manager exists
         if (GameManager.Instance == null)
             return;
 
-        // removes the previous entries so the journal reflects the current game state.
+        // removes the previous entries so the journal reflects the current game state
         foreach (Transform child in npcList)
         {
             Destroy(child.gameObject);
         }
 
-        // gets the npc records that the player has discovered.
+        // gets the npc records that the player has discovered
         IReadOnlyDictionary<string, NPCRecord> records =
             GameManager.Instance.GetNPCRecords();
 
-        // creates one entry for every npc the player has spoken to.
+        // creates one entry for every npc the player has spoken to
         foreach (NPCRecord record in records.Values)
         {
             GameObject entry = Instantiate(
@@ -217,16 +217,16 @@ public class JournalUI : MonoBehaviour
                 npcList
             );
 
-            // finds the text components belonging to this journal entry.
+            // finds the text components belonging to this journal entry
             TMP_Text[] textFields = entry.GetComponentsInChildren<TMP_Text>();
 
-            // displays the npc's name in the first text field.
+            // displays the npcs name in the first text field
             if (textFields.Length > 0)
             {
                 textFields[0].text = record.Name;
             }
 
-            // displays the information learned from the npc in the second text field.
+            // displays the information learned from the npc in the second text field
             if (textFields.Length > 1)
             {
                 textFields[1].text = string.Join("\n", record.Information);

@@ -44,14 +44,14 @@ public class LighthouseLight : MonoBehaviour
 
     private void Update()
     {
-        // rotates the spotlight around the lighthouse.
+        // rotates the spotlight around the lighthouse
         transform.Rotate(
             Vector3.forward,
             -rotationSpeed * Time.deltaTime,
             Space.Self
         );
 
-        // when disabled, the lighthouse can be tested at any time.
+        // when disabled lighthouse can be tested at any time
         if (useGameTime && !IsNighttime())
         {
             lighthouseLight.intensity = minimumIntensity;
@@ -109,7 +109,7 @@ public class LighthouseLight : MonoBehaviour
 
     private bool IsNighttime()
     {
-        // supports a nighttime period that crosses midnight.
+        // supports a nighttime period that crosses midnight
         if (nightStartTime > nightEndTime)
         {
             return Time.time >= nightStartTime ||

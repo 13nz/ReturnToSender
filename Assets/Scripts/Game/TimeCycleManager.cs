@@ -40,27 +40,27 @@ public class TimeCycleManager : MonoBehaviour
 
     private void Start()
     {
-        // applies the current game time when the main scene loads.
+        // applies the current game time when the main scene loads
         ApplyCurrentTime();
     }
 
     public void ApplyCurrentTime()
     {
-        // prevents the lighting system from failing if the global light is missing.
+        // prevents the lighting system from failing if the global light is missing
         if (globalLight == null)
         {
             Debug.LogWarning("no global light 2d has been assigned to the time cycle manager.");
             return;
         }
 
-        // prevents the lighting system from failing if the game manager is missing.
+        // prevents the lighting system from failing if the game manager is missing
         if (GameManager.Instance == null)
         {
             Debug.LogWarning("no game manager was found for the time cycle manager.");
             return;
         }
 
-        // changes the global light based on the current game time.
+        // changes the global light based on the current game time
         switch (GameManager.Instance.CurrentTime)
         {
             case GameTime.Morning:
@@ -99,7 +99,7 @@ public class TimeCycleManager : MonoBehaviour
 
     private void SetLighting(Color color, float intensity)
     {
-        // applies the selected color and brightness to the global light.
+        // applies the selected color and brightness to the global light
         globalLight.color = color;
         globalLight.intensity = intensity;
     }

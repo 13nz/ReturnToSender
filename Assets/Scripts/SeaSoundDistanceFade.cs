@@ -15,7 +15,7 @@ public class SeaSoundDistanceFade : MonoBehaviour
 
     private void Awake()
     {
-        // gets the AudioSource attached to this object.
+        // gets the AudioSource attached to this object
         audioSource = GetComponent<AudioSource>();
 
         if (audioSource == null)
@@ -28,7 +28,7 @@ public class SeaSoundDistanceFade : MonoBehaviour
             return;
         }
 
-        // uses 2D audio because volume is controlled manually by player y.
+        // uses 2D audio because volume is controlled manually by player y
         audioSource.spatialBlend = 0f;
         audioSource.playOnAwake = true;
         audioSource.loop = true;
@@ -36,7 +36,7 @@ public class SeaSoundDistanceFade : MonoBehaviour
 
     private void Start()
     {
-        // finds the persistent player after the scene has loaded.
+        // finds the persistent player after the scene has loaded
         GameObject playerObject =
             GameObject.FindGameObjectWithTag("Player");
 
@@ -55,17 +55,17 @@ public class SeaSoundDistanceFade : MonoBehaviour
         if (player == null)
             return;
 
-        // uses only the player's y position.
+        // uses only the player's y position
         float playerY = player.position.y;
 
-        // converts the y position into a value between 0 and 1.
+        // converts the y position into a value between 0 and 1
         float fadeAmount = Mathf.InverseLerp(
             quietestPlayerY,
             loudestPlayerY,
             playerY
         );
 
-        // changes the sea volume based only on player y.
+        // changes the sea volume based only on player y
         audioSource.volume = Mathf.Lerp(
             minimumVolume,
             maximumVolume,

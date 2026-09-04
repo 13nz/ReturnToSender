@@ -12,13 +12,13 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
-        // keeps the menu canvas alive when changing scenes.
+        // keeps the menu canvas alive when changing scenes
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // starts with the menu closed.
+        // starts with the menu closed
         SetMenuOpen(false);
     }
 
@@ -27,7 +27,7 @@ public class MainMenuUI : MonoBehaviour
         if (Keyboard.current == null)
             return;
 
-        // opens or closes the pause menu with Escape.
+        // opens or closes the pause menu with esc
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             ToggleMenu();
@@ -41,7 +41,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void SetMenuOpen(bool open)
     {
-        // stores whether the menu is currently open.
+        // stores whether the menu is currently open
         menuOpen = open;
 
         // pauses or resumes the game.
@@ -49,12 +49,12 @@ public class MainMenuUI : MonoBehaviour
 
         if (menuOpen)
         {
-            // starts on the main menu whenever the pause menu is opened.
+            // starts on the main menu whenever the pause menu is opened
             ShowMainMenu();
         }
         else
         {
-            // hides both menu pages when the menu is closed.
+            // hides both menu pages when the menu is closed
             menuPanel.SetActive(false);
             settingsPanel.SetActive(false);
         }
@@ -62,43 +62,43 @@ public class MainMenuUI : MonoBehaviour
 
     public void ResumeGame()
     {
-        // closes the menu and resumes gameplay.
+        // closes the menu and resumes gameplay
         SetMenuOpen(false);
     }
 
     public void OpenSettings()
     {
-        // hides the main menu and displays the settings page.
+        // hides the main menu and displays the settings page
         menuPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
 
     public void CloseSettings()
     {
-        // returns from the settings page to the main menu.
+        // returns from the settings page to the main menu
         ShowMainMenu();
     }
     
 
     private void ShowMainMenu()
     {
-        // displays the main menu page.
+        // displays the main menu page
         menuPanel.SetActive(true);
 
-        // hides the settings page.
+        // hides the settings page
         settingsPanel.SetActive(false);
     }
 
     public void ExitGame()
     {
-        // restores normal game speed before leaving the game.
+        // restores normal game speed before leaving the game
         Time.timeScale = 1f;
 
         // quits the built game.
         Application.Quit();
 
 #if UNITY_EDITOR
-        // stops play mode when testing inside the Unity Editor.
+        // stops play mode when testing inside the editor
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }

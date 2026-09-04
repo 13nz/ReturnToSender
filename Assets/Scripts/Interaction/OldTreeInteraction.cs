@@ -14,7 +14,7 @@ public class OldTreeInteraction : Interactable
 
     private void Update()
     {
-        // allows the ending to be tested by pressing T.
+        // allows the ending to be tested without full game progression
         if (allowTestingWithoutProgression &&
             Keyboard.current != null &&
             Keyboard.current.tKey.wasPressedThisFrame)
@@ -25,17 +25,17 @@ public class OldTreeInteraction : Interactable
 
     public override void Interact()
     {
-        // starts the ending through the normal interaction system.
+        // starts the ending through the normal interaction system
         StartEnding();
     }
 
     private void StartEnding()
     {
-        // prevents the ending from being triggered more than once.
+        // prevents the ending from being triggered more than once
         if (endingStarted)
             return;
 
-        // skips the progression requirement only while testing is enabled.
+        // skips the progression requirement only while testing is enabled
         if (!allowTestingWithoutProgression)
         {
             if (GameManager.Instance == null)
@@ -47,7 +47,7 @@ public class OldTreeInteraction : Interactable
 
         endingStarted = true;
 
-        // finds the ending sequence attached to OldTree.
+        // finds the ending sequence attached to OldTree
         EndingSequence endingSequence =
             GetComponent<EndingSequence>();
 

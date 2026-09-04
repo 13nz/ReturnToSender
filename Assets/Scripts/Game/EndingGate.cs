@@ -10,36 +10,36 @@ public class EndingGate : MonoBehaviour
 
     private void Awake()
     {
-        // gets every collider attached to this fence and its children.
+        // gets every collider attached to this fence and its children
         colliders = GetComponentsInChildren<Collider2D>(true);
 
-        // gets every renderer attached to this fence and its children.
+        // gets every renderer attached to this fence and its children
         renderers = GetComponentsInChildren<Renderer>(true);
     }
 
     private void Start()
     {
-        // updates the gate when the main scene loads.
+        // updates the gate when the main scene loads
         UpdateGate();
     }
 
     public void UpdateGate()
     {
-        // makes sure the game manager is available before checking progression.
+        // makes sure the game manager is available before checking progression
         if (GameManager.Instance == null)
             return;
 
-        // checks whether the lighthouse keeper has been spoken to.
+        // checks whether the lighthouse keeper has been spoken to
         bool unlocked = GameManager.Instance.HasSpokenToNPC(requiredNpcId);
 
-        // enables or disables every fence collider.
+        // enables or disables every fence collider
         foreach (Collider2D collider in colliders)
         {
             if (collider != null)
                 collider.enabled = !unlocked;
         }
 
-        // shows or hides every fence renderer.
+        // shows or hides every fence renderer
         foreach (Renderer renderer in renderers)
         {
             if (renderer != null)
