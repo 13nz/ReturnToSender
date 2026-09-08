@@ -118,7 +118,7 @@ The intro and ending scenes are separate from the playable scenes so their UI ca
 ## Credits
 
 * Sound effects: [Pixabay](https://pixabay.com/)
-* Character base template: [itch.io](https://sayaka04.itch.io/sprite-template-32x48)
+* Character base template: [Sayaka04 on itch.io](https://sayaka04.itch.io/sprite-template-32x48)
 * Rest of the pixel art assets and main music made by me.
 
 Developed with Unity.
