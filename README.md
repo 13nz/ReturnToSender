@@ -5,9 +5,13 @@ Return to Sender is a short atmospheric narrative game set in a strange coastal 
 You play as a courier assigned to deliver a strange package. What begins as an ordinary delivery gradually becomes something much more unsettling as you explore the neighborhood, speak with residents, and uncover information connected to the delivery.
 
 The game focuses on exploration, dialogue, environmental storytelling, and a slow-building sense of unease.
+
+
 ![alt text](Screenshots/rts10.png)
 
 [Play](https://lenzz.itch.io/return-to-sender)
+
+
 ## Features
 
 * Explore an atmospheric coastal neighborhood
@@ -28,7 +32,11 @@ As you investigate the neighborhood, conversations reveal information about the 
 Pay attention to dialogue and environmental details. Some locations or events may only become available after specific conversations.
 
 The game is primarily focused on exploration and discovery rather than combat.
+
+
 ![alt text](Screenshots/rts11.png)
+
+
 ## Controls
 
 | Action                           | Keyboard           |
@@ -41,6 +49,8 @@ The game is primarily focused on exploration and discovery rather than combat.
 | Open or close the journal        | Tab                |
 | Navigate menus                   | Mouse              |
 
+
+
 ## Story Progression
 
 The game uses a checkpoint-based story system. Conversations are recorded when they are completed, and certain characters can advance the current story checkpoint.
@@ -48,7 +58,11 @@ The game uses a checkpoint-based story system. Conversations are recorded when t
 Some environmental changes occur after specific conversations. If an area appears to be blocked or unavailable, continue exploring and speaking with residents to determine what needs to happen next.
 
 The journal records important information discovered during conversations.
+
+
 ![alt text](Screenshots/rts25.png)
+
+
 ## Scenes
 
 The project is organized into several scenes:
@@ -103,9 +117,9 @@ The intro and ending scenes are separate from the playable scenes so their UI ca
 
 ## Credits
 
-Sound effects: pixabay.com
-Character base template: [itch.io](https://sayaka04.itch.io/sprite-template-32x48)
-Rest of the pixel art assets and main music made by me.
+* Sound effects: [Pixabay](https://pixabay.com/)
+* Character base template: [itch.io](https://sayaka04.itch.io/sprite-template-32x48)
+* Rest of the pixel art assets and main music made by me.
 
 Developed with Unity.
 
