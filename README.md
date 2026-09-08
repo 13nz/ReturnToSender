@@ -6,6 +6,8 @@ You play as a courier assigned to deliver a strange package. What begins as an o
 
 The game focuses on exploration, dialogue, environmental storytelling, and a slow-building sense of unease.
 ![alt text](Screenshots/rts10.png)
+
+[Play](https://lenzz.itch.io/return-to-sender)
 ## Features
 
 * Explore an atmospheric coastal neighborhood
@@ -102,7 +104,7 @@ The intro and ending scenes are separate from the playable scenes so their UI ca
 ## Credits
 
 Sound effects: pixabay.com
-Character base template: https://sayaka04.itch.io/sprite-template-32x48
+Character base template: [itch.io](https://sayaka04.itch.io/sprite-template-32x48)
 Rest of the pixel art assets and main music made by me.
 
 Developed with Unity.
