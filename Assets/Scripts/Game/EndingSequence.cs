@@ -254,7 +254,16 @@ public class EndingSequence : MonoBehaviour
             cameraFollow.enabled = true;
         }
 
-        Debug.Log("ending complete.");
+        StartCoroutine(LoadEndingScene());
+    }
+
+    private IEnumerator LoadEndingScene()
+    {
+        // wait briefly after the ending animation finishes
+        yield return new WaitForSeconds(2f);
+
+        // load the separate ending screen
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EndingScene");
     }
 
     private IEnumerator FadeChipalopeIn()
