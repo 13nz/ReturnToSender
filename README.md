@@ -9,7 +9,7 @@ The game focuses on exploration, dialogue, environmental storytelling, and a slo
 
 ![alt text](Screenshots/rts10.png)
 
-[Play](https://lenzz.itch.io/return-to-sender)
+[PLAY HERE](https://lenzz.itch.io/return-to-sender)
 
 
 ## Features

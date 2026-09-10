@@ -318,19 +318,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[3]'
-      value: "They asked whether banana slug essence was still used in the preparation.
-        I told them I\u2019d never heard of banana slugs being used in wine. They
-        said they hadn\u2019t asked whether I\u2019d heard of it."
+      value: "He asked whether banana slug essence was still used in the preparation.
+        I told him I\u2019d never heard of banana slugs being used in wine. He said
+        he hadn\u2019t asked whether I\u2019d heard of it."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[4]'
-      value: "They asked whether it was made in a laboratory beneath the old observatory.
-        I told them I\u2019d never heard of a laboratory beneath anything."
+      value: "He asked whether it was made in a laboratory beneath the old observatory.
+        I told him I\u2019d never heard of a laboratory beneath anything."
       objectReference: {fileID: 0}
     - target: {fileID: 8028808172065697213, guid: 4823f6e19886c409f9be3177774e8584, type: 3}
       propertyPath: 'dialogueLines.Array.data[5]'
-      value: They were staying at the motel. Room 49, I think. The receptionist might
-        remember them better than I do.
+      value: He was staying at the motel. Room 49, I think. The receptionist might
+        remember him better than I do.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -859,7 +859,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 6.4374285}
+  m_Offset: {x: 0, y: 6.222108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -869,7 +869,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.416667, y: 3.6251435}
+  m_Size: {x: 8.416667, y: 4.0557847}
   m_EdgeRadius: 0
 --- !u!61 &1499912087
 BoxCollider2D:
