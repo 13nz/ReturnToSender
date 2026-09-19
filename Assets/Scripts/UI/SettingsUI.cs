@@ -12,6 +12,10 @@ public class SettingsUI : MonoBehaviour
     [Header("fullscreen toggle")]
     [SerializeField] private Toggle fullscreenToggle;
 
+    [Header("objective toggle")]
+    [SerializeField] private Toggle objectiveToggle;
+    [SerializeField] private GameObject objectiveCanvas;
+
     [Header("audio mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
@@ -19,6 +23,7 @@ public class SettingsUI : MonoBehaviour
     private const string musicVolumeKey = "music_volume";
     private const string sfxVolumeKey = "sfx_volume";
     private const string fullscreenKey = "fullscreen";
+    private const string objectiveKey = "objective_visible";
 
     private void Start()
     {
@@ -32,6 +37,9 @@ public class SettingsUI : MonoBehaviour
 
         // listens for changes to the fullscreen toggle
         fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
+
+        // listens for changes to the objective toggle
+        objectiveToggle.onValueChanged.AddListener(SetObjectiveVisible);
     }
 
     private void LoadSettings()
@@ -47,17 +55,22 @@ public class SettingsUI : MonoBehaviour
             Screen.fullScreen ? 1 : 0
         ) == 1;
 
+        // objective reminders are off by default
+        bool objectiveVisible = PlayerPrefs.GetInt(objectiveKey, 0) == 1;
+
         // updates the ui to match the saved settings
         masterVolumeSlider.value = masterVolume;
         musicVolumeSlider.value = musicVolume;
         sfxVolumeSlider.value = sfxVolume;
         fullscreenToggle.isOn = fullscreen;
+        objectiveToggle.isOn = objectiveVisible;
 
         // applies the saved settings
         SetMasterVolume(masterVolume);
         SetMusicVolume(musicVolume);
         SetSFXVolume(sfxVolume);
         SetFullscreen(fullscreen);
+        SetObjectiveVisible(objectiveVisible);
     }
 
     private void SetMasterVolume(float value)
@@ -111,6 +124,18 @@ public class SettingsUI : MonoBehaviour
         Screen.fullScreen = enabled;
     }
 
+    private void SetObjectiveVisible(bool enabled)
+    {
+        // saves the objective visibility setting
+        PlayerPrefs.SetInt(objectiveKey, enabled ? 1 : 0);
+
+        // shows or hides the objective canvas
+        if (objectiveCanvas != null)
+        {
+            objectiveCanvas.SetActive(enabled);
+        }
+    }
+
     private void OnDestroy()
     {
         // removes the slider listeners when this object is destroyed
@@ -132,6 +157,11 @@ public class SettingsUI : MonoBehaviour
         if (fullscreenToggle != null)
         {
             fullscreenToggle.onValueChanged.RemoveListener(SetFullscreen);
+        }
+
+        if (objectiveToggle != null)
+        {
+            objectiveToggle.onValueChanged.RemoveListener(SetObjectiveVisible);
         }
     }
 }
